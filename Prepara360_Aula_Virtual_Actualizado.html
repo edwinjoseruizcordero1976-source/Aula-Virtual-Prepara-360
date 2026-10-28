@@ -1,0 +1,4247 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prepara 360 Regional 15 · Aula Virtual</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🎓</text></svg>">
+  
+  <!-- Tipografía institucional y moderna para educación de jóvenes y adultos -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Sora:wght@600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+/* ============================================================
+   ESTILOS GENERALES Y PALETA: PREPARA 360 REGIONAL 15
+============================================================ */
+:root {
+  --primary: #2563eb;          /* Azul dinámico */
+  --primary-dark: #1d4ed8;
+  --primary-light: #60a5fa;
+  --primary-bg: #eff6ff;
+
+  --secondary: #0d9488;        /* Teal vibrante */
+  --secondary-dark: #0f766e;
+  --secondary-bg: #f0fdfa;
+
+  --accent-kids: #f59e0b;       /* Amarillo/Ámbar lúdico */
+  --accent-coral: #f43f5e;      /* Coral alegre */
+  --accent-purple: #8b5cf6;     /* Violeta imaginación */
+  --success: #10b981;          /* Verde logro */
+  --warning: #f59e0b;
+  --danger: #ef4444;
+
+  --bg-main: #f8fafc;
+  --surface: #ffffff;
+  --surface-alt: #f1f5f9;
+  --border: #e2e8f0;
+  --border-focus: #93c5fd;
+
+  --text-main: #0f172a;
+  --text-muted: #64748b;
+  --text-light: #94a3b8;
+
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 20px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-md: 0 8px 16px -2px rgba(15, 23, 42, 0.08);
+  --shadow-lg: 0 16px 32px -4px rgba(15, 23, 42, 0.12);
+  --shadow-glow: 0 0 20px rgba(37, 99, 235, 0.2);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+}
+
+h1, h2, h3, h4, .brand-title, .fun-font {
+  font-family: 'Quicksand', 'Plus Jakarta Sans', sans-serif;
+}
+
+body {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-x: hidden;
+}
+
+/* Scrollbar estilizada */
+::-webkit-scrollbar {
+  width: 9px;
+  height: 9px;
+}
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: var(--radius-full);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* ============================================================
+   BARRAS DE ROL Y CABECERA PRINCIPAL
+============================================================ */
+.role-top-banner {
+  padding: 0.5rem 1.5rem;
+  font-size: 0.82rem;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  transition: all 0.3s ease;
+  z-index: 50;
+}
+.role-top-banner.teacher-mode {
+  background: linear-gradient(90deg, #1e3a8a 0%, #0d9488 100%);
+  color: white;
+}
+.role-top-banner.student-mode {
+  background: linear-gradient(90deg, #f59e0b 0%, #ec4899 50%, #3b82f6 100%);
+  color: white;
+}
+
+.app-header {
+  background: var(--surface);
+  border-bottom: 2px solid var(--border);
+  position: sticky;
+  top: 0;
+  z-index: 40;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+}
+
+.header-inner {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0.85rem 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+
+.brand-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+
+.brand-logo-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: var(--radius-md);
+  background: linear-gradient(135deg, #2563eb 0%, #f43f5e 50%, #f59e0b 100%);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 6px 14px rgba(37, 99, 235, 0.25);
+  transform: rotate(-3deg);
+  transition: transform 0.25s ease;
+}
+.brand-wrapper:hover .brand-logo-icon {
+  transform: rotate(3deg) scale(1.05);
+}
+
+.brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #1e293b;
+  letter-spacing: -0.02em;
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  line-height: 1.1;
+}
+
+.kids-pill {
+  background: linear-gradient(135deg, #f59e0b, #ef4444);
+  color: white;
+  padding: 0.15rem 0.6rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  box-shadow: 0 2px 6px rgba(244, 63, 94, 0.3);
+}
+
+.brand-subtitle {
+  font-size: 0.76rem;
+  color: var(--text-muted);
+  font-weight: 600;
+}
+
+/* Control de Rol en Header */
+.role-control-box {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  background: var(--surface-alt);
+  padding: 0.45rem 0.85rem;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border);
+}
+
+.role-badge-tag {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8rem;
+  font-weight: 800;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.06);
+}
+.role-badge-tag.teacher {
+  background: #1e40af;
+  color: white;
+}
+.role-badge-tag.student {
+  background: #10b981;
+  color: white;
+}
+
+.btn-toggle-role {
+  background: white;
+  border: 2px solid var(--border);
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-md);
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--text-main);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: all 0.2s ease;
+  box-shadow: var(--shadow-sm);
+}
+.btn-toggle-role:hover {
+  background: #eff6ff;
+  border-color: var(--primary);
+  color: var(--primary);
+  transform: translateY(-1px);
+}
+
+/* ============================================================
+   ESTRUCTURA Y LAYOUT PRINCIPAL
+============================================================ */
+.app-layout {
+  display: flex;
+  flex: 1;
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 1.5rem;
+  gap: 1.5rem;
+}
+
+/* Barra Lateral */
+.app-sidebar {
+  width: 275px;
+  flex-shrink: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.sidebar-nav {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  box-shadow: var(--shadow-sm);
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.8rem 1.1rem;
+  border-radius: var(--radius-md);
+  color: var(--text-muted);
+  font-weight: 600;
+  font-size: 0.92rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: none;
+  background: transparent;
+  width: 100%;
+  text-align: left;
+}
+.nav-item:hover {
+  background: #f8fafc;
+  color: var(--primary);
+  transform: translateX(3px);
+}
+.nav-item.active {
+  background: linear-gradient(135deg, #eff6ff 0%, #e0f2fe 100%);
+  color: var(--primary);
+  font-weight: 700;
+  box-shadow: inset 3px 0 0 var(--primary);
+}
+.nav-item .nav-icon {
+  font-size: 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+}
+.nav-badge-pill {
+  margin-left: auto;
+  padding: 0.15rem 0.55rem;
+  border-radius: var(--radius-full);
+  font-size: 0.72rem;
+  font-weight: 800;
+}
+
+/* Tarjeta informativa de rol en sidebar */
+.role-info-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 2px dashed var(--border);
+  padding: 1.15rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.3s ease;
+}
+.role-info-card.teacher {
+  border-color: #bfdbfe;
+  background: #f8faff;
+}
+.role-info-card.student {
+  border-color: #bbf7d0;
+  background: #f0fdf4;
+}
+
+/* Contenido Principal */
+.main-content {
+  flex: 1;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+/* ============================================================
+   COMPONENTES UI & TARJETAS
+============================================================ */
+.card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: box-shadow 0.2s;
+}
+.card:hover {
+  box-shadow: var(--shadow-md);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.card-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: var(--text-main);
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+.card-subtitle {
+  font-size: 0.86rem;
+  color: var(--text-muted);
+  margin-top: 0.25rem;
+}
+
+/* Banner de Bienvenida interactivo */
+.hero-welcome-banner {
+  border-radius: var(--radius-lg);
+  padding: 1.85rem;
+  color: white;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1.5rem;
+}
+.hero-welcome-banner.teacher {
+  background: linear-gradient(135deg, #1e3a8a 0%, #0d9488 100%);
+}
+.hero-welcome-banner.student {
+  background: linear-gradient(135deg, #2563eb 0%, #8b5cf6 50%, #ec4899 100%);
+}
+.hero-welcome-banner::after {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 220px;
+  height: 220px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+/* Botones */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.6rem 1.2rem;
+  border-radius: var(--radius-md);
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  outline: none;
+  user-select: none;
+}
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+.btn:active {
+  transform: translateY(0);
+}
+.btn-primary {
+  background-color: var(--primary);
+  color: white;
+}
+.btn-primary:hover {
+  background-color: var(--primary-dark);
+}
+.btn-secondary {
+  background-color: var(--secondary);
+  color: white;
+}
+.btn-secondary:hover {
+  background-color: var(--secondary-dark);
+}
+.btn-success {
+  background-color: var(--success);
+  color: white;
+}
+.btn-outline {
+  background-color: white;
+  border-color: var(--border);
+  color: var(--text-main);
+}
+.btn-outline:hover {
+  background-color: #f8fafc;
+  border-color: #cbd5e1;
+}
+.btn-danger {
+  background-color: var(--danger);
+  color: white;
+}
+.btn-accent {
+  background-color: var(--accent-kids);
+  color: #1e293b;
+}
+.btn-sm {
+  padding: 0.4rem 0.8rem;
+  font-size: 0.8rem;
+  border-radius: var(--radius-sm);
+}
+
+/* Badges */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.3rem 0.75rem;
+  border-radius: var(--radius-full);
+  font-size: 0.78rem;
+  font-weight: 700;
+  line-height: 1;
+}
+.badge-primary { background: #dbeafe; color: #1e40af; }
+.badge-secondary { background: #ccfbf1; color: #0f766e; }
+.badge-success { background: #dcfce7; color: #15803d; }
+.badge-warning { background: #fef3c7; color: #b45309; }
+.badge-danger { background: #fee2e2; color: #b91c1c; }
+.badge-purple { background: #f3e8ff; color: #7e22ce; }
+.badge-neutral { background: #f1f5f9; color: #475569; }
+
+/* Grid de Asignaturas */
+.subjects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(290px, 1fr));
+  gap: 1.25rem;
+}
+.subject-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 2px solid var(--border);
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.25s ease;
+  position: relative;
+  overflow: hidden;
+}
+.subject-card:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-lg);
+  border-color: var(--subject-color, var(--primary));
+}
+.subject-card-header {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  margin-bottom: 0.75rem;
+}
+.subject-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  background: var(--subject-bg, #eff6ff);
+  color: var(--subject-color, var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.7rem;
+  flex-shrink: 0;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+.subject-name {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--text-main);
+}
+.subject-teacher {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+}
+.subject-stats {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin: 0.75rem 0;
+  padding: 0.6rem 0.85rem;
+  background: #f8fafc;
+  border-radius: var(--radius-md);
+  font-size: 0.78rem;
+  color: var(--text-muted);
+}
+
+/* Foro y Discusión */
+.forum-filter-bar {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border);
+}
+.forum-thread-card {
+  background: white;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem;
+  margin-bottom: 1.2rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+.forum-thread-card:hover {
+  border-color: #cbd5e1;
+  box-shadow: var(--shadow-md);
+}
+.forum-thread-card.pinned {
+  border-left: 4px solid var(--accent-kids);
+  background: #fffdfa;
+}
+.forum-reply-box {
+  background: #f8fafc;
+  border-left: 4px solid var(--secondary);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  padding: 1rem 1.15rem;
+  margin-top: 0.85rem;
+}
+.forum-reply-box.teacher-reply {
+  background: #f0fdfa;
+  border-left: 4px solid #0d9488;
+}
+
+/* Reproductores y Videos */
+.video-card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+.video-card {
+  background: white;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--border);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+}
+.video-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+}
+.video-thumbnail-box {
+  position: relative;
+  padding-top: 56.25%;
+  background: #0f172a;
+  cursor: pointer;
+  overflow: hidden;
+}
+.video-thumbnail-overlay {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  background: linear-gradient(180deg, rgba(15,23,42,0.4) 0%, rgba(15,23,42,0.85) 100%);
+  color: white;
+  transition: background 0.2s;
+}
+.video-thumbnail-box:hover .video-thumbnail-overlay {
+  background: linear-gradient(180deg, rgba(15,23,42,0.2) 0%, rgba(15,23,42,0.7) 100%);
+}
+.play-btn-circle {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--accent-coral);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.6rem;
+  box-shadow: 0 4px 15px rgba(244, 63, 94, 0.4);
+  transition: transform 0.2s, background 0.2s;
+}
+.video-thumbnail-box:hover .play-btn-circle {
+  transform: scale(1.15);
+  background: #e11d48;
+}
+
+/* Modales */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(5px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.2s ease;
+  padding: 1.25rem;
+}
+.modal-overlay.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+.modal-box {
+  background: white;
+  border-radius: var(--radius-lg);
+  max-width: 680px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  padding: 2rem;
+  box-shadow: var(--shadow-lg);
+  transform: scale(0.96);
+  transition: transform 0.2s ease;
+}
+.modal-overlay.active .modal-box {
+  transform: scale(1);
+}
+
+/* Formularios */
+.form-group {
+  margin-bottom: 1.15rem;
+}
+.form-label {
+  display: block;
+  font-size: 0.86rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+.form-control {
+  width: 100%;
+  padding: 0.7rem 0.95rem;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  font-size: 0.92rem;
+  color: var(--text-main);
+  background: white;
+  transition: all 0.2s;
+}
+.form-control:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+}
+
+/* Notificaciones Toast */
+#toast-container {
+  position: fixed;
+  bottom: 24px;
+  right: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 9999;
+  pointer-events: none;
+}
+.toast {
+  background: #1e293b;
+  color: white;
+  padding: 0.9rem 1.4rem;
+  border-radius: var(--radius-md);
+  box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-size: 0.88rem;
+  font-weight: 600;
+  pointer-events: auto;
+  animation: slideInToast 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.toast.success { background: #065f46; border-left: 4px solid #10b981; }
+.toast.info { background: #1e3a8a; border-left: 4px solid #3b82f6; }
+.toast.warning { background: #78350f; border-left: 4px solid #f59e0b; }
+
+@keyframes slideInToast {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+/* Confeti Canvas */
+#confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 999;
+}
+
+/* Responsividad */
+@media (max-width: 960px) {
+  .app-layout {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .app-sidebar {
+    width: 100%;
+  }
+  .sidebar-nav {
+    flex-direction: row;
+    overflow-x: auto;
+    padding: 0.5rem;
+  }
+  .nav-item {
+    white-space: nowrap;
+    padding: 0.5rem 0.85rem;
+  }
+}
+
+/* ============================================================
+   AJUSTE VISUAL INSTITUCIONAL · PREPARA 360 REGIONAL 15
+   (Educación de Personas Jóvenes y Adultos)
+============================================================ */
+:root {
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
+  --navy: #0a1f4f;
+  --navy-2: #0f2f7d;
+  --gold: #f5b83d;
+}
+h1, h2, h3, h4, .brand-title, .fun-font {
+  font-family: 'Sora', 'Plus Jakarta Sans', system-ui, sans-serif;
+}
+.role-top-banner.student-mode {
+  background: linear-gradient(90deg, #0f766e 0%, #1e3a8a 100%);
+}
+.hero-welcome-banner.student {
+  background: linear-gradient(135deg, #0a1f4f 0%, #1d4ed8 60%, #0d9488 100%);
+}
+.brand-logo-icon {
+  background: linear-gradient(135deg, #0a1f4f 0%, #1d4ed8 70%, #0d9488 100%);
+  border-radius: 12px;
+  transform: none;
+  font-family: 'Sora', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  box-shadow: 0 6px 14px rgba(10, 31, 79, 0.28);
+}
+.brand-wrapper:hover .brand-logo-icon { transform: scale(1.07); }
+.brand-title { font-size: 1.15rem; letter-spacing: 0.01em; }
+.kids-pill {
+  background: linear-gradient(135deg, #0d9488, #1d4ed8);
+  box-shadow: 0 2px 6px rgba(29, 78, 216, 0.3);
+  letter-spacing: 0.08em;
+}
+
+/* ---------- Título principal interactivo ---------- */
+.p360-hero {
+  --mx: 50%; --my: 30%; --px: 0; --py: 0;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  isolation: isolate;
+  background:
+    radial-gradient(1100px 480px at 88% -10%, rgba(13, 148, 136, 0.5), transparent 60%),
+    linear-gradient(135deg, #071a45 0%, #0f2f7d 58%, #13408f 100%);
+}
+.p360-hero::before {
+  content: '';
+  position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255, 255, 255, 0.17), transparent 62%);
+}
+.p360-grid {
+  position: absolute; inset: 0; z-index: -2; pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255,255,255,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255,255,255,0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
+  -webkit-mask-image: radial-gradient(ellipse at 70% 40%, #000 15%, transparent 75%);
+  mask-image: radial-gradient(ellipse at 70% 40%, #000 15%, transparent 75%);
+}
+.p360-blob {
+  position: absolute; z-index: -2; border-radius: 50%; filter: blur(55px); pointer-events: none;
+  transform: translate(calc(var(--px) * var(--k, 30px)), calc(var(--py) * var(--k, 30px)));
+  transition: transform 0.3s ease-out;
+}
+.p360-blob.b1 { width: 340px; height: 340px; background: #0d9488; opacity: 0.5; left: -90px; top: -130px; --k: -50px; }
+.p360-blob.b2 { width: 300px; height: 300px; background: var(--gold); opacity: 0.2; right: 24%; bottom: -170px; --k: 60px; }
+.p360-flagbar {
+  height: 5px;
+  background: linear-gradient(90deg, #002d62 0 34%, #ffffff 34% 66%, #ce1126 66% 100%);
+}
+.p360-hero-inner {
+  max-width: 1440px; margin: 0 auto;
+  padding: 2.7rem 1.5rem 2.9rem;
+  display: grid; grid-template-columns: 1.25fr 0.75fr; gap: 2rem; align-items: center;
+}
+.p360-eyebrow {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  padding: 0.38rem 0.95rem; border-radius: 9999px;
+  background: rgba(255,255,255,0.1); border: 1px solid rgba(255,255,255,0.22);
+  font-size: 0.74rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+  backdrop-filter: blur(6px);
+}
+.p360-eyebrow i {
+  width: 8px; height: 8px; border-radius: 50%; background: #34d399; display: inline-block;
+  box-shadow: 0 0 0 0 rgba(52, 211, 153, 0.7); animation: p360blink 2s infinite;
+}
+.p360-title {
+  font-family: 'Sora', 'Plus Jakarta Sans', sans-serif;
+  font-size: clamp(2.6rem, 6.3vw, 5.1rem);
+  line-height: 1.02; font-weight: 800; letter-spacing: -0.035em;
+  margin: 1rem 0 0.7rem;
+}
+.p360-line { display: block; white-space: nowrap; cursor: default; }
+.p360-letter {
+  display: inline-block;
+  transition: transform 0.28s cubic-bezier(.3,1.6,.5,1), filter 0.25s;
+}
+.p360-letter:hover { transform: translateY(-10px) scale(1.12) rotate(-3deg); }
+.p360-line.gold .p360-letter {
+  padding: 0 0.01em 0.14em; margin-bottom: -0.14em;
+  background: linear-gradient(180deg, #ffe08a 0%, #f5b83d 55%, #e08e0b 100%);
+  -webkit-background-clip: text; background-clip: text;
+  color: transparent; -webkit-text-fill-color: transparent;
+}
+.p360-line.gold .p360-letter:hover { filter: brightness(1.2) drop-shadow(0 4px 10px rgba(245,184,61,0.55)); }
+.p360-aula {
+  display: inline-flex; align-items: center; gap: 0.9rem;
+  font-family: 'Sora', sans-serif; font-weight: 700;
+  font-size: clamp(1rem, 2vw, 1.45rem); letter-spacing: 0.3em; text-transform: uppercase;
+}
+.p360-aula::before { content: ''; width: 54px; height: 3px; border-radius: 3px; background: var(--gold); }
+.p360-aula span {
+  background: linear-gradient(90deg, #fff 0%, #bfdbfe 30%, #fff 60%);
+  background-size: 200% 100%;
+  -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;
+  animation: p360shimmer 5s linear infinite;
+}
+.p360-tag { margin-top: 1.1rem; font-size: 1.1rem; font-weight: 600; display: flex; gap: 0.5rem; align-items: center; flex-wrap: wrap; }
+.p360-words { position: relative; display: inline-block; height: 1.5em; line-height: 1.5; width: 7.2ch; overflow: hidden; vertical-align: bottom; }
+.p360-words b {
+  line-height: 1.5;
+  position: absolute; left: 0; top: 0; opacity: 0; font-weight: 800; color: var(--gold);
+  animation: p360word 12s infinite;
+  animation-delay: calc(var(--i) * 3s + var(--off, 0s));
+}
+.p360-desc { margin-top: 0.7rem; max-width: 620px; font-size: 0.95rem; line-height: 1.6; color: rgba(255,255,255,0.82); }
+.p360-chips { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 1.4rem; }
+.p360-chip {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  padding: 0.6rem 1.05rem; border-radius: 9999px; cursor: pointer;
+  background: rgba(255,255,255,0.1); color: #fff; border: 1px solid rgba(255,255,255,0.28);
+  font-size: 0.85rem; font-weight: 700; transition: all 0.22s ease; backdrop-filter: blur(6px);
+}
+.p360-chip:hover { background: #fff; color: var(--navy); transform: translateY(-3px); box-shadow: 0 10px 22px rgba(0,0,0,0.25); }
+.p360-chip.active { background: var(--gold); color: #1e293b; border-color: var(--gold); }
+.p360-stats { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 0.75rem; margin-top: 1.5rem; max-width: 640px; }
+.p360-stat {
+  padding: 0.8rem 0.9rem; border-radius: 12px;
+  background: rgba(255,255,255,0.08); border: 1px solid rgba(255,255,255,0.16);
+  transition: transform 0.2s, background 0.2s;
+}
+.p360-stat:hover { transform: translateY(-3px); background: rgba(255,255,255,0.15); }
+.p360-stat b { display: block; font-family: 'Sora', sans-serif; font-size: 1.5rem; font-weight: 800; line-height: 1.1; }
+.p360-stat span { font-size: 0.7rem; letter-spacing: 0.06em; text-transform: uppercase; color: rgba(255,255,255,0.72); font-weight: 600; }
+
+/* Órbita interactiva 360° */
+.p360-orbit {
+  --size: clamp(240px, 26vw, 340px);
+  --r: calc(var(--size) / 2 - 30px);
+  position: relative; width: var(--size); height: var(--size); margin: 0 auto;
+  transform: translate(calc(var(--px) * -16px), calc(var(--py) * -16px));
+  transition: transform 0.3s ease-out;
+}
+.p360-ring {
+  position: absolute; inset: 0; border-radius: 50%;
+  border: 1.5px dashed rgba(255,255,255,0.3);
+  animation: p360spin 44s linear infinite; animation-delay: var(--off, 0s);
+}
+.p360-ring.inner { inset: 19%; border: 1px solid rgba(255,255,255,0.16); animation-direction: reverse; animation-duration: 70s; animation-delay: 0s; }
+.p360-core {
+  position: absolute; inset: 29%; border-radius: 50%; border: 0; cursor: pointer; color: #fff;
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  background: radial-gradient(circle at 30% 25%, #3b82f6, #0a1f4f 75%);
+  box-shadow: 0 0 0 8px rgba(255,255,255,0.07), 0 0 60px rgba(37,99,235,0.7);
+  font-family: 'Sora', sans-serif; font-weight: 800; font-size: calc(var(--size) * 0.145);
+  animation: p360pulse 4s ease-in-out infinite; transition: transform 0.25s;
+}
+.p360-core:hover { transform: scale(1.08); }
+.p360-core small { font-size: calc(var(--size) * 0.036); letter-spacing: 0.22em; font-weight: 700; opacity: 0.85; margin-top: 2px; }
+.p360-node {
+  position: absolute; top: 50%; left: 50%; width: 0; height: 0;
+  transform: rotate(var(--a)) translateX(var(--r)) rotate(calc(var(--a) * -1));
+}
+.p360-node-btn {
+  position: absolute; left: -26px; top: -26px; width: 52px; height: 52px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center; font-size: 1.4rem; cursor: pointer;
+  color: #fff; background: rgba(255,255,255,0.16); border: 1px solid rgba(255,255,255,0.4);
+  backdrop-filter: blur(6px);
+  animation: p360spin 44s linear infinite reverse; animation-delay: var(--off, 0s);
+  transition: background 0.2s, box-shadow 0.2s, border-color 0.2s;
+}
+.p360-node-btn:hover, .p360-node-btn:focus-visible { background: var(--gold); border-color: var(--gold); box-shadow: 0 0 0 6px rgba(245,184,61,0.25), 0 8px 20px rgba(0,0,0,0.3); outline: none; }
+.p360-node-btn::after {
+  content: attr(data-label);
+  position: absolute; top: 118%; left: 50%; transform: translateX(-50%);
+  background: #0a1f4f; color: #fff; border: 1px solid rgba(255,255,255,0.25);
+  font-size: 0.7rem; font-weight: 700; letter-spacing: 0.04em; white-space: nowrap;
+  padding: 0.25rem 0.6rem; border-radius: 6px; opacity: 0; pointer-events: none; transition: opacity 0.2s;
+}
+.p360-node-btn:hover::after, .p360-node-btn:focus-visible::after { opacity: 1; }
+.p360-orbit:hover .p360-ring, .p360-orbit:hover .p360-node-btn { animation-play-state: paused; }
+
+/* Entrada (solo en la primera carga) */
+.p360-hero.intro .p360-eyebrow, .p360-hero.intro .p360-title, .p360-hero.intro .p360-aula,
+.p360-hero.intro .p360-tag, .p360-hero.intro .p360-desc, .p360-hero.intro .p360-chips,
+.p360-hero.intro .p360-stats { animation: p360fadeup 0.8s cubic-bezier(.2,.7,.2,1) both; }
+.p360-hero.intro .p360-title { animation-delay: 0.1s; }
+.p360-hero.intro .p360-aula { animation-delay: 0.22s; }
+.p360-hero.intro .p360-tag { animation-delay: 0.3s; }
+.p360-hero.intro .p360-desc { animation-delay: 0.38s; }
+.p360-hero.intro .p360-chips { animation-delay: 0.46s; }
+.p360-hero.intro .p360-stats { animation-delay: 0.54s; }
+
+/* Versión compacta (otras secciones) */
+.p360-compact {
+  max-width: 1440px; margin: 0 auto; padding: 0.9rem 1.5rem;
+  display: flex; align-items: center; gap: 1rem; flex-wrap: wrap; justify-content: space-between;
+}
+.p360-compact-title {
+  font-family: 'Sora', sans-serif; font-size: clamp(1.15rem, 2.4vw, 1.6rem); font-weight: 800;
+  letter-spacing: -0.02em; cursor: pointer; display: flex; align-items: baseline; gap: 0.5rem; flex-wrap: wrap;
+}
+.p360-compact-title em { font-style: normal; color: var(--gold); }
+.p360-compact-title small { font-size: 0.62em; letter-spacing: 0.22em; text-transform: uppercase; font-weight: 700; color: rgba(255,255,255,0.8); }
+.p360-compact .p360-chips { margin-top: 0; }
+.p360-compact .p360-chip { padding: 0.4rem 0.8rem; font-size: 0.78rem; }
+
+@keyframes p360spin { to { transform: rotate(360deg); } }
+@keyframes p360pulse { 0%, 100% { box-shadow: 0 0 0 8px rgba(255,255,255,0.07), 0 0 50px rgba(37,99,235,0.55); } 50% { box-shadow: 0 0 0 14px rgba(255,255,255,0.05), 0 0 80px rgba(59,130,246,0.85); } }
+@keyframes p360word { 0% { opacity: 0; transform: translateY(70%); } 4%, 22% { opacity: 1; transform: none; } 26%, 100% { opacity: 0; transform: translateY(-70%); } }
+@keyframes p360shimmer { to { background-position: -200% 0; } }
+@keyframes p360blink { 0% { box-shadow: 0 0 0 0 rgba(52,211,153,0.7); } 70%, 100% { box-shadow: 0 0 0 10px rgba(52,211,153,0); } }
+@keyframes p360fadeup { from { opacity: 0; transform: translateY(18px); } to { opacity: 1; transform: none; } }
+
+@media (max-width: 920px) {
+  .p360-hero-inner { grid-template-columns: 1fr; padding: 2rem 1.25rem 2.2rem; }
+  .p360-orbit { --size: clamp(230px, 62vw, 300px); }
+  .p360-stats { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .p360-line { white-space: normal; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .p360-hero *, .p360-hero *::before, .p360-hero *::after { animation: none !important; transition: none !important; }
+  .p360-words b:first-child { opacity: 1; }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Canvas para animación de logros y confeti -->
+  <canvas id="confetti-canvas"></canvas>
+
+  <!-- Contenedor Principal de la Aplicación -->
+  <div id="app"></div>
+
+  <!-- Contenedor de Modales Dinámicos -->
+  <div id="modal-container"></div>
+
+  <!-- Contenedor de Alertas Toast -->
+  <div id="toast-container"></div>
+
+  <script>
+/**
+ * ============================================================
+ * PREPARA 360 REGIONAL 15 - PLATAFORMA DE AULA VIRTUAL
+ * Sistema con separación estricta de permisos: Docente vs Alumno
+ * Soporta Almacenamiento Local (localStorage) y 8 Asignaturas
+ * ============================================================
+ */
+
+const STORAGE_KEY = 'prepa360_kids_v2';
+
+// 8 ASIGNATURAS OFICIALES REQUERIDAS
+const OFFICIAL_SUBJECTS = [
+  {
+    id: 'subj-esp',
+    name: 'Lengua Española',
+    color: '#ef4444',
+    bg: '#fee2e2',
+    icon: '📚',
+    teacher: 'Mtra. Carmen Rosario',
+    description: 'Comprensión lectora, ortografía divertida, redacción y literatura infantil y juvenil.'
+  },
+  {
+    id: 'subj-mat',
+    name: 'Matemáticas',
+    color: '#2563eb',
+    bg: '#dbeafe',
+    icon: '📐',
+    teacher: 'Prof. Daniel Valenzuela',
+    description: 'Aritmética práctica, resolución de problemas lógicos, geometría y cálculo interactivo.'
+  },
+  {
+    id: 'subj-soc',
+    name: 'Ciencias Sociales',
+    color: '#f59e0b',
+    bg: '#fef3c7',
+    icon: '🌍',
+    teacher: 'Licda. Altagracia Peña',
+    description: 'Historia regional, geografía universal, identidad cultural y convivencia armónica.'
+  },
+  {
+    id: 'subj-nat',
+    name: 'Ciencias de la Naturaleza',
+    color: '#10b981',
+    bg: '#dcfce7',
+    icon: '🌱',
+    teacher: 'Prof. Marcos Gómez',
+    description: 'Seres vivos, ecosistemas, método científico, cuidado del planeta y física elemental.'
+  },
+  {
+    id: 'subj-ef',
+    name: 'Educación Física',
+    color: '#06b6d4',
+    bg: '#cffafe',
+    icon: '⚽',
+    teacher: 'Entrenador Luis Santana',
+    description: 'Desarrollo motriz, hábitos de vida saludable, recreación activa y deportes en equipo.'
+  },
+  {
+    id: 'subj-art',
+    name: 'Educación Artística',
+    color: '#ec4899',
+    bg: '#fce7f3',
+    icon: '🎨',
+    teacher: 'Mtra. Sofía Morales',
+    description: 'Expresión plástica, dibujo, iniciación musical, creatividad y teatro escolar.'
+  },
+  {
+    id: 'subj-fhr',
+    name: 'Formación Humana y Religiosa',
+    color: '#8b5cf6',
+    bg: '#ede9fe',
+    icon: '🕊️',
+    teacher: 'Prof. Gabriel Méndez',
+    description: 'Valores humanos, espiritualidad, empatía, respeto familiar y fraternidad comunitaria.'
+  },
+  {
+    id: 'subj-mc',
+    name: 'Moral y Cívica',
+    color: '#0d9488',
+    bg: '#ccfbf1',
+    icon: '⚖️',
+    teacher: 'Dra. Rosaura Fernández',
+    description: 'Deberes y derechos de los niños y jóvenes, ciudadanía responsable y ética cotidiana.'
+  }
+];
+
+// DATOS INICIALES SEMILLA
+const INITIAL_DATA = {
+  currentRole: 'teacher', // 'teacher' (docente con permisos de edición) o 'student' (alumno sólo lectura/entrega)
+  currentStudentId: 'std-1',
+  activeSubjectFilter: 'all', // Filtro de materia en vistas
+  teacherProfile: {
+    name: 'Mtra. Elena Rodríguez V.',
+    title: 'Coordinadora Académica & Docente Titular',
+    school: 'Prepara 360 Regional 15',
+    avatarText: 'ER'
+  },
+  students: [
+    {
+      id: 'std-1',
+      code: 'R15-2026-101',
+      name: 'Mateo Sánchez Almonte',
+      email: 'mateo.sanchez@prepara360.edu.do',
+      grade: '6to Primaria / 1er Secundaria',
+      modality: '100% No Presencial (A Distancia)',
+      avatar: '👨',
+      stars: 48,
+      attendanceRate: 98
+    },
+    {
+      id: 'std-2',
+      code: 'R15-2026-102',
+      name: 'Sofía Gómez Peralta',
+      email: 'sofia.gomez@prepara360.edu.do',
+      grade: '6to Primaria / 1er Secundaria',
+      modality: '100% No Presencial (A Distancia)',
+      avatar: '👩',
+      stars: 52,
+      attendanceRate: 100
+    },
+    {
+      id: 'std-3',
+      code: 'R15-2026-103',
+      name: 'Lucas Fernández Díaz',
+      email: 'lucas.fernandez@prepara360.edu.do',
+      grade: '6to Primaria / 1er Secundaria',
+      modality: 'Semipresencial Flexible',
+      avatar: '🧑',
+      stars: 42,
+      attendanceRate: 92
+    },
+    {
+      id: 'std-4',
+      code: 'R15-2026-104',
+      name: 'Valentina Morales Cruz',
+      email: 'valentina.morales@prepara360.edu.do',
+      grade: '6to Primaria / 1er Secundaria',
+      modality: '100% No Presencial (A Distancia)',
+      avatar: '✨',
+      stars: 55,
+      attendanceRate: 99
+    }
+  ],
+  tasks: [
+    {
+      id: 'task-1',
+      subject: 'Lengua Española',
+      title: 'Fabulario Ilustrado: Crear una fábula con moraleja',
+      instructions: 'Escribe una fábula corta de 2 páginas con animales como personajes donde se resalte el valor del trabajo en equipo. Ilustra tu cuento a mano o digitalmente y súbelo en PDF o imagen clara.',
+      supportingResource: 'Guía de Estructura de la Fábula y Moralejas',
+      dueDate: '28 Octubre 2026, 18:00',
+      assignedBy: 'Mtra. Carmen Rosario',
+      status: 'pending', // 'pending' o 'delivered'
+      grade: null,
+      feedback: null,
+      fileName: null,
+      studentNotes: null
+    },
+    {
+      id: 'task-2',
+      subject: 'Matemáticas',
+      title: 'Taller de Fracciones Divertidas en la Cocina',
+      instructions: 'Resuelve la hoja de trabajo con los 6 ejercicios de suma y resta de fracciones aplicando recetas de cocina. Muestra el procedimiento de simplificación en cada reactivo.',
+      supportingResource: 'Ficha Práctica: Fracciones Visuales y Equivalencias',
+      dueDate: '30 Octubre 2026, 20:00',
+      assignedBy: 'Prof. Daniel Valenzuela',
+      status: 'delivered',
+      grade: 95,
+      feedback: '¡Excelente trabajo, Mateo! Los procedimientos con mínimo común múltiplo están impecables.',
+      fileName: 'Mateo_Sanchez_FraccionesCocina.pdf',
+      studentNotes: 'Profesor, me apoyé en el video explicativo de la sesión 3 para el ejercicio 5.'
+    },
+    {
+      id: 'task-3',
+      subject: 'Ciencias de la Naturaleza',
+      title: 'Herbario Digital: 4 Hojas y Ecosistemas Locales',
+      instructions: 'Recolecta o fotografía 4 tipos de hojas caídas en tu entorno, clasifícalas por su borde y forma, y describe qué función cumplen en la fotosíntesis y producción de oxígeno.',
+      supportingResource: 'Clasificador Gráfico de Botánica',
+      dueDate: '02 Noviembre 2026, 18:00',
+      assignedBy: 'Prof. Marcos Gómez',
+      status: 'pending',
+      grade: null,
+      feedback: null,
+      fileName: null,
+      studentNotes: null
+    },
+    {
+      id: 'task-4',
+      subject: 'Ciencias Sociales',
+      title: 'Línea de Tiempo Ilustrada: Momentos Patrios Clave',
+      instructions: 'Diseña una línea de tiempo colorida con 5 acontecimientos históricos relevantes del siglo XIX. Incluye fecha, personajes y por qué es importante para nuestra libertad actual.',
+      supportingResource: 'Atlas Histórico y Personajes Emblemáticos',
+      dueDate: '05 Noviembre 2026, 19:00',
+      assignedBy: 'Licda. Altagracia Peña',
+      status: 'pending',
+      grade: null,
+      feedback: null,
+      fileName: null,
+      studentNotes: null
+    },
+    {
+      id: 'task-5',
+      subject: 'Moral y Cívica',
+      title: 'Decálogo de Convivencia Escolar y Comunitaria',
+      instructions: 'Elabora un cartel con 10 normas de oro de respeto, honestidad y cuidado de los espacios públicos para una comunidad más justa y feliz.',
+      supportingResource: 'Guía Ciudadana: Mis Derechos y Deberes',
+      dueDate: '08 Noviembre 2026, 18:00',
+      assignedBy: 'Dra. Rosaura Fernández',
+      status: 'delivered',
+      grade: 100,
+      feedback: '¡Brillante decálogo! Muy original y con un diseño lleno de civismo y empatía.',
+      fileName: 'Mateo_Sanchez_Decalogo_Civico.pdf',
+      studentNotes: 'Profe, compartí las normas con mi familia y todos firmamos el compromiso.'
+    }
+  ],
+  resources: [
+    {
+      id: 'res-1',
+      subject: 'Lengua Española',
+      title: 'Guía de Estructura de la Fábula y Moralejas',
+      description: 'Documento interactivo con ejemplos clásicos, elementos narrativos y organizadores gráficos para redactar fábulas.',
+      type: 'Guía en PDF',
+      size: '2.4 MB',
+      uploadedBy: 'Mtra. Carmen Rosario',
+      downloads: 68
+    },
+    {
+      id: 'res-2',
+      subject: 'Matemáticas',
+      title: 'Ficha Práctica: Fracciones Visuales y Equivalencias',
+      description: 'Tablas ilustradas de partes y fracciones, figuras geométricas y ejercicios guiados paso a paso.',
+      type: 'Ficha Didáctica',
+      size: '1.8 MB',
+      uploadedBy: 'Prof. Daniel Valenzuela',
+      downloads: 94
+    },
+    {
+      id: 'res-3',
+      subject: 'Ciencias de la Naturaleza',
+      title: 'Clasificador Gráfico de Botánica',
+      description: 'Póster descargable de partes de la planta, tipos de raíces, flores y procesos de fotosíntesis simplificados.',
+      type: 'Póster PDF',
+      size: '3.1 MB',
+      uploadedBy: 'Prof. Marcos Gómez',
+      downloads: 55
+    },
+    {
+      id: 'res-4',
+      subject: 'Educación Física',
+      title: 'Manual de Calistenia y Hábitos de Postura Saludable',
+      description: 'Rutina de 15 minutos de estiramientos para estudiantes que estudian en casa frente a la pantalla.',
+      type: 'Infografía',
+      size: '1.2 MB',
+      uploadedBy: 'Entrenador Luis Santana',
+      downloads: 40
+    },
+    {
+      id: 'res-5',
+      subject: 'Educación Artística',
+      title: 'Círculo Cromático y Técnicas de Mezcla de Color',
+      description: 'Ficha didáctica con teoría de colores primarios, secundarios y tonos cálidos para pintar con témperas o lápices.',
+      type: 'Guía de Arte',
+      size: '2.7 MB',
+      uploadedBy: 'Mtra. Sofía Morales',
+      downloads: 72
+    },
+    {
+      id: 'res-6',
+      subject: 'Formación Humana y Religiosa',
+      title: 'El Árbol de los Valores y la Buena Convivencia',
+      description: 'Lecturas formativas de solidaridad, empatía, perdón y respeto en el hogar y en la escuela.',
+      type: 'Cuadernillo Didáctico',
+      size: '1.9 MB',
+      uploadedBy: 'Prof. Gabriel Méndez',
+      downloads: 61
+    },
+    {
+      id: 'res-7',
+      subject: 'Moral y Cívica',
+      title: 'Guía Ciudadana: Mis Derechos y Deberes',
+      description: 'Explicación ilustrada de la Declaración de los Derechos de la Niñez y la Constitución explicada para niños.',
+      type: 'Compendio Cívico',
+      size: '2.2 MB',
+      uploadedBy: 'Dra. Rosaura Fernández',
+      downloads: 83
+    }
+  ],
+  videos: [
+    {
+      id: 'vid-1',
+      subject: 'Matemáticas',
+      title: 'Fracciones en Acción: ¿Cómo repartir una pizza matemáticamente?',
+      teacher: 'Prof. Daniel Valenzuela',
+      duration: '18 min',
+      date: '20 Octubre 2026',
+      summary: 'Aprende qué es el numerador, denominador y cómo sumar fracciones de igual denominador con figuras interactivas.',
+      watched: true,
+      chapters: ['00:00 Introducción', '05:30 El secreto del denominador', '12:15 Ejemplos divertidos']
+    },
+    {
+      id: 'vid-2',
+      subject: 'Ciencias de la Naturaleza',
+      title: 'El Viaje de la Gota de Agua: Ciclo Hidrológico Explicado',
+      teacher: 'Prof. Marcos Gómez',
+      duration: '15 min',
+      date: '22 Octubre 2026',
+      summary: 'Descubre cómo el agua se evapora, forma nubes en la atmósfera, llueve y recarga los ríos de nuestra región.',
+      watched: false,
+      chapters: ['00:00 Evaporación y calor solar', '06:00 Condensación y nubes', '10:30 Precipitación']
+    },
+    {
+      id: 'vid-3',
+      subject: 'Lengua Española',
+      title: 'Taller de Cuentacuentos: Cómo dar vida a los personajes',
+      teacher: 'Mtra. Carmen Rosario',
+      duration: '22 min',
+      date: '23 Octubre 2026',
+      summary: 'Técnicas de entonación, descripción de escenarios mágicos y estructura del nudo y desenlace.',
+      watched: true,
+      chapters: ['00:00 El inicio emocionante', '08:00 Creando el villano y el héroe', '16:00 El final']
+    },
+    {
+      id: 'vid-4',
+      subject: 'Educación Física',
+      title: 'Pausa Activa Regional 15: 10 Minutos de Coordinación y Ritmo',
+      teacher: 'Entrenador Luis Santana',
+      duration: '12 min',
+      date: '24 Octubre 2026',
+      summary: 'Ejercicios de estiramiento y saltos aeróbicos sencillos para hacer en el espacio de casa sin equipo especial.',
+      watched: false,
+      chapters: ['00:00 Calentamiento de articulaciones', '04:00 Circuito aeróbico', '09:00 Respiración y calma']
+    }
+  ],
+  forumPosts: [
+    {
+      id: 'f-1',
+      category: 'duda', // 'duda' (duda académica) o 'discusion' (debate temático)
+      subject: 'Matemáticas',
+      title: 'Duda sobre el ejercicio 4 del taller de fracciones',
+      author: 'Mateo Sánchez Almonte',
+      authorRole: 'student',
+      authorAvatar: '👦',
+      date: 'Ayer a las 4:15 PM',
+      content: 'Profesor Daniel, cuando sumo 2/3 + 1/6, ¿debo convertir primero el 2/3 a sextos multiplicando por 2? En mi libreta me quedó 5/6 pero quiero verificar si ese es el procedimiento formal.',
+      status: 'resuelto', // 'abierto' o 'resuelto'
+      pinned: false,
+      replies: [
+        {
+          id: 'rep-1',
+          author: 'Prof. Daniel Valenzuela',
+          authorRole: 'teacher',
+          authorAvatar: '👨‍🏫',
+          date: 'Ayer a las 5:30 PM',
+          text: '¡Excelente razonamiento, Mateo! Así es: como el mínimo común múltiplo de 3 y 6 es 6, multiplicas numerador y denominador de 2/3 por 2 y obtienes 4/6. Luego 4/6 + 1/6 = 5/6. ¡Tu respuesta es 100% correcta!'
+        }
+      ]
+    },
+    {
+      id: 'f-2',
+      category: 'discusion',
+      subject: 'Ciencias de la Naturaleza',
+      title: 'Foro de Debate: ¿Cómo podemos ahorrar agua y energía en nuestros hogares?',
+      author: 'Prof. Marcos Gómez',
+      authorRole: 'teacher',
+      authorAvatar: '👨‍🏫',
+      date: 'Hace 2 días',
+      content: '¡Hola a todos! Bienvenidos a nuestro espacio de debate semanal. Compartan en este hilo 2 medidas prácticas que aplican en su casa para cuidar el agua o reducir el consumo de plástico. ¡Los estaré leyendo y comentando!',
+      status: 'abierto',
+      pinned: true,
+      replies: [
+        {
+          id: 'rep-2',
+          author: 'Sofía Gómez Peralta',
+          authorRole: 'student',
+          authorAvatar: '👧',
+          date: 'Ayer a las 10:20 AM',
+          text: 'En mi casa cerramos la llave mientras nos cepillamos los dientes y recolectamos el agua de la lluvia en una cubeta para regar las plantas del jardín por las tardes.'
+        },
+        {
+          id: 'rep-3',
+          author: 'Mateo Sánchez Almonte',
+          authorRole: 'student',
+          authorAvatar: '👦',
+          date: 'Hoy a las 9:15 AM',
+          text: 'Nosotros reemplazamos los focos por luces LED y llevamos bolsas de tela reusables cuando vamos al supermercado con mis papás.'
+        }
+      ]
+    },
+    {
+      id: 'f-3',
+      category: 'duda',
+      subject: 'Lengua Española',
+      title: '¿Las fábulas pueden tener personajes que sean plantas o robots?',
+      author: 'Lucas Fernández Díaz',
+      authorRole: 'student',
+      authorAvatar: '🧒',
+      date: 'Hoy a las 11:40 AM',
+      content: 'Mtra. Carmen, en la tarea del fabulario quiero hacer que los personajes sean dos árboles de caoba que hablan sobre la paciencia. ¿Se considera fábula aunque no sean animales?',
+      status: 'abierto',
+      pinned: false,
+      replies: [
+        {
+          id: 'rep-4',
+          author: 'Mtra. Carmen Rosario',
+          authorRole: 'teacher',
+          authorAvatar: '👩‍🏫',
+          date: 'Hoy a las 12:10 PM',
+          text: '¡Por supuesto, Lucas! En la literatura moderna la personificación aplica tanto a animales como a plantas u objetos. Mientras tenga moraleja y enseñanza, ¡es una maravillosa fábula ecológica!'
+        }
+      ]
+    }
+  ]
+};
+
+// ============================================================
+// FUNCIONES DE ALMACENAMIENTO Y ESTADO
+// ============================================================
+function loadAppState() {
+  const saved = localStorage.getItem(STORAGE_KEY);
+  if (saved) {
+    try {
+      const parsed = JSON.parse(saved);
+      if (parsed.students && Array.isArray(parsed.students)) {
+        return parsed;
+      }
+    } catch (e) {
+      console.warn('Error parseando datos locales:', e);
+    }
+  }
+  saveAppState(INITIAL_DATA);
+  return JSON.parse(JSON.stringify(INITIAL_DATA));
+}
+
+function saveAppState(data) {
+  localStorage.setItem(STORAGE_KEY, JSON.stringify(data));
+}
+
+let appState = loadAppState();
+
+// ============================================================
+// DOCENTES POR ASIGNATURA (editables y guardados en el navegador)
+// ============================================================
+const DEFAULT_TEACHERS = {};
+OFFICIAL_SUBJECTS.forEach(s => { DEFAULT_TEACHERS[s.id] = s.teacher; });
+const NO_TEACHER_LABEL = 'Sin docente asignado';
+
+function applySubjectTeachers() {
+  const saved = appState.subjectTeachers || {};
+  OFFICIAL_SUBJECTS.forEach(s => {
+    if (Object.prototype.hasOwnProperty.call(saved, s.id)) {
+      s.teacher = saved[s.id] || NO_TEACHER_LABEL;
+    } else {
+      s.teacher = DEFAULT_TEACHERS[s.id];
+    }
+  });
+}
+applySubjectTeachers();
+
+function getTeacherRaw(subject) {
+  return subject.teacher === NO_TEACHER_LABEL ? '' : subject.teacher;
+}
+
+function escAttr(str) {
+  return String(str).replace(/&/g, '&amp;').replace(/"/g, '&quot;').replace(/</g, '&lt;').replace(/>/g, '&gt;');
+}
+
+function setSubjectTeacher(subjectId, newName) {
+  const subject = OFFICIAL_SUBJECTS.find(s => s.id === subjectId);
+  if (!subject) return;
+  const clean = String(newName || '').replace(/[<>]/g, '').trim();
+  const oldDisplay = subject.teacher;
+  const newDisplay = clean || NO_TEACHER_LABEL;
+
+  if (!appState.subjectTeachers) appState.subjectTeachers = {};
+  appState.subjectTeachers[subjectId] = clean;
+
+  // Mantener coherentes las tareas y videos ya creados con el docente anterior
+  appState.tasks.forEach(t => {
+    if (t.subject === subject.name && t.assignedBy === oldDisplay) t.assignedBy = newDisplay;
+  });
+  appState.videos.forEach(v => {
+    if (v.subject === subject.name && v.teacher === oldDisplay) v.teacher = newDisplay;
+  });
+
+  saveAppState(appState);
+  applySubjectTeachers();
+}
+
+function openTeacherProfileModal() {
+  if (appState.currentRole !== 'teacher') {
+    showToast('Solo el docente puede editar este perfil.', 'warning');
+    return;
+  }
+  const tp = appState.teacherProfile;
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-teacher-profile">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="font-size:1.2rem; font-weight:800;">✏️ Perfil del Docente / Coordinador(a)</h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-teacher-profile')">✕</button>
+        </div>
+        <form onsubmit="handleTeacherProfileSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Nombre (como quieres que aparezca):</label>
+            <input type="text" class="form-control" id="tp-name" value="${escAttr(tp.name)}" placeholder="Ej. Lic. María Pérez" required />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Cargo:</label>
+            <input type="text" class="form-control" id="tp-title" value="${escAttr(tp.title || '')}" placeholder="Ej. Coordinador(a) Académico(a)" />
+          </div>
+          <div class="form-group">
+            <label class="form-label">Centro / Regional:</label>
+            <input type="text" class="form-control" id="tp-school" value="${escAttr(tp.school || '')}" />
+          </div>
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-teacher-profile')">Cancelar</button>
+            <button type="submit" class="btn btn-primary">💾 Guardar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleTeacherProfileSubmit(e) {
+  e.preventDefault();
+  const clean = v => String(v || '').replace(/[<>]/g, '').trim();
+  const newName = clean(document.getElementById('tp-name').value);
+  if (!newName) return;
+  const oldName = appState.teacherProfile.name;
+
+  appState.teacherProfile.name = newName;
+  appState.teacherProfile.title = clean(document.getElementById('tp-title').value);
+  appState.teacherProfile.school = clean(document.getElementById('tp-school').value);
+  appState.teacherProfile.avatarText = newName.replace(/^(Mtra?\.|Prof\.|Licda?\.|Dra?\.|Lic\.|Ing\.)\s*/i, '')
+    .split(/\s+/).filter(Boolean).slice(0, 2).map(w => w[0].toUpperCase()).join('');
+
+  // Mantener coherente lo ya publicado con el nombre anterior
+  if (oldName && oldName !== newName) {
+    appState.resources.forEach(r => { if (r.uploadedBy === oldName) r.uploadedBy = newName; });
+    appState.videos.forEach(v => { if (v.teacher === oldName) v.teacher = newName; });
+    appState.tasks.forEach(t => { if (t.assignedBy === oldName) t.assignedBy = newName; });
+    appState.forumPosts.forEach(p => {
+      if (p.authorRole === 'teacher' && p.author === oldName) p.author = newName;
+      (p.replies || []).forEach(r => {
+        if (r.authorRole === 'teacher' && r.author === oldName) r.author = newName;
+      });
+    });
+  }
+
+  saveAppState(appState);
+  closeModal('modal-teacher-profile');
+  renderApp();
+  showToast('Perfil del docente guardado.', 'success');
+}
+
+function openTeachersModal(focusSubjectId) {
+  if (appState.currentRole !== 'teacher') {
+    showToast('Solo el docente puede editar los nombres de los maestros.', 'warning');
+    return;
+  }
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-teachers">
+      <div class="modal-box" style="max-height:90vh; overflow-y:auto;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.5rem;">
+          <h3 style="font-size:1.2rem; font-weight:800;">👨‍🏫 Maestro(a) de cada asignatura</h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-teachers')">✕</button>
+        </div>
+        <p style="font-size:0.82rem; color:var(--text-muted); margin-bottom:1rem;">
+          Escribe, cambia o elimina el nombre del maestro de cada materia y guarda los cambios.
+        </p>
+        ${OFFICIAL_SUBJECTS.map(s => `
+          <div class="form-group" style="border-bottom:1px solid var(--border); padding-bottom:0.75rem;">
+            <label class="form-label">${s.icon} ${s.name}</label>
+            <div style="display:flex; gap:0.4rem; align-items:center;">
+              <input type="text" class="form-control" id="teacher-input-${s.id}" value="${escAttr(getTeacherRaw(s))}" placeholder="Nombre del maestro(a)" style="flex:1;" />
+              <button type="button" class="btn btn-sm btn-primary" title="Guardar" onclick="saveSubjectTeacherFromModal('${s.id}')">💾</button>
+              <button type="button" class="btn btn-sm btn-outline" style="color:#ef4444; border-color:#fecaca;" title="Eliminar nombre" onclick="deleteSubjectTeacherFromModal('${s.id}')">🗑️</button>
+            </div>
+          </div>
+        `).join('')}
+        <div style="display:flex; justify-content:space-between; gap:0.5rem; margin-top:1rem; flex-wrap:wrap;">
+          <button type="button" class="btn btn-outline" onclick="restoreDefaultTeachers()">↩️ Restaurar nombres originales</button>
+          <div style="display:flex; gap:0.5rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-teachers')">Cerrar</button>
+            <button type="button" class="btn btn-primary" onclick="saveAllTeachersFromModal()">💾 Guardar todos</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+  if (focusSubjectId) {
+    const el = document.getElementById('teacher-input-' + focusSubjectId);
+    if (el) { el.focus(); el.select(); el.scrollIntoView({ block: 'center' }); }
+  }
+}
+
+function saveSubjectTeacherFromModal(subjectId) {
+  const input = document.getElementById('teacher-input-' + subjectId);
+  if (!input) return;
+  setSubjectTeacher(subjectId, input.value);
+  renderApp();
+  const s = OFFICIAL_SUBJECTS.find(x => x.id === subjectId);
+  showToast(`Docente de ${s.name} guardado: ${s.teacher}`, 'success');
+}
+
+function deleteSubjectTeacherFromModal(subjectId) {
+  const s = OFFICIAL_SUBJECTS.find(x => x.id === subjectId);
+  if (!s) return;
+  if (!confirm(`¿Eliminar el nombre del docente de ${s.name}?`)) return;
+  setSubjectTeacher(subjectId, '');
+  const input = document.getElementById('teacher-input-' + subjectId);
+  if (input) input.value = '';
+  renderApp();
+  showToast(`Se eliminó el docente de ${s.name}.`, 'info');
+}
+
+function saveAllTeachersFromModal() {
+  OFFICIAL_SUBJECTS.forEach(s => {
+    const input = document.getElementById('teacher-input-' + s.id);
+    if (input) setSubjectTeacher(s.id, input.value);
+  });
+  renderApp();
+  closeModal('modal-teachers');
+  showToast('Docentes de todas las asignaturas guardados.', 'success');
+}
+
+function restoreDefaultTeachers() {
+  if (!confirm('¿Restaurar los nombres de maestros originales de las 8 asignaturas?')) return;
+  OFFICIAL_SUBJECTS.forEach(s => setSubjectTeacher(s.id, DEFAULT_TEACHERS[s.id]));
+  renderApp();
+  openTeachersModal();
+  showToast('Nombres originales restaurados.', 'info');
+}
+
+// Ajuste de etiquetas de marca en datos ya guardados (no modifica contenido académico)
+(function migrateBrandLabels() {
+  try {
+    let txt = JSON.stringify(appState);
+    const MAP = [
+      ['¡Hola a todos los exploradores Kids! ', '¡Hola a todos! '],
+      ['Preparatoria 360 Regional Kids', 'Prepara 360 Regional 15'],
+      ['Regional Kids', 'Regional 15'],
+      ['prepa360kids.edu', 'prepara360.edu.do'],
+      ['RK-2026-', 'R15-2026-'],
+      ['video_leccion_kids', 'video_leccion'],
+      [' Kids', ''],
+      ['"avatar":"👦"', '"avatar":"👨"'],
+      ['"avatar":"👧"', '"avatar":"👩"'],
+      ['"avatar":"🧒"', '"avatar":"🧑"']
+    ];
+    let changed = false;
+    MAP.forEach(([a, b]) => { if (txt.includes(a)) { txt = txt.split(a).join(b); changed = true; } });
+    if (changed) { appState = JSON.parse(txt); saveAppState(appState); }
+  } catch (e) { /* sin cambios */ }
+})();
+let currentTab = 'dashboard'; // 'dashboard', 'subjects', 'tasks', 'resources', 'videos', 'forum', 'students'
+
+// Auxiliar para alumno activo
+function getCurrentStudent() {
+  const s = appState.students.find(st => st.id === appState.currentStudentId);
+  return s || appState.students[0] || {
+    id: 'none', code: '—', name: 'Sin estudiante registrado', email: '', grade: '—',
+    modality: '—', avatar: '🎓', stars: 0, attendanceRate: 0
+  };
+}
+
+// ============================================================
+// RENDERIZADOR GENERAL DE LA APP
+// ============================================================
+// ============================================================
+// TÍTULO PRINCIPAL INTERACTIVO: PREPARA 360 REGIONAL 15
+// ============================================================
+function p360Letters(text) {
+  return text.split('').map(ch => ch === ' ' ? ' ' : `<span class="p360-letter">${ch}</span>`).join('');
+}
+
+function renderP360Hero() {
+  const full = currentTab === 'dashboard';
+  const t = Date.now() / 1000;                       // mantiene las animaciones continuas entre renders
+  const offSpin = `-${(t % 44).toFixed(2)}s`;
+  const offWord = `-${(t % 12).toFixed(2)}s`;
+  const intro = !window.__p360Seen;
+  window.__p360Seen = true;
+
+  const quick = [
+    ['subjects', '📚', 'Asignaturas'],
+    ['tasks', '📝', 'Tareas'],
+    ['videos', '🎬', 'Videoteca'],
+    ['forum', '💬', 'Foro'],
+    ['resources', '📖', 'Recursos']
+  ];
+  const chips = quick.map(([tab, icon, label]) => `
+    <button type="button" class="p360-chip ${currentTab === tab ? 'active' : ''}" onclick="switchTab('${tab}')">
+      <span>${icon}</span> ${label}
+    </button>`).join('');
+
+  if (!full) {
+    return `
+      <section class="p360-hero compact" id="p360-hero" aria-label="Prepara 360 Regional 15 · Aula Virtual">
+        <div class="p360-blob b1"></div>
+        <div class="p360-grid"></div>
+        <div class="p360-compact">
+          <h1 class="p360-compact-title" onclick="switchTab('dashboard')" title="Ir al inicio">
+            <span>Prepara 360</span> <em>Regional 15</em> <small>Aula Virtual</small>
+          </h1>
+          <div class="p360-chips">${chips}</div>
+        </div>
+        <div class="p360-flagbar"></div>
+      </section>`;
+  }
+
+  const nodes = quick.map(([tab, icon, label], i) => `
+    <div class="p360-node" style="--a:${i * 72 - 90}deg">
+      <button type="button" class="p360-node-btn" data-label="${label}" aria-label="${label}" onclick="switchTab('${tab}')">${icon}</button>
+    </div>`).join('');
+
+  const words = ['Aprende', 'Participa', 'Avanza', 'Conecta'].map((w, i) => `<b style="--i:${i}">${w}</b>`).join('');
+
+  return `
+    <section class="p360-hero ${intro ? 'intro' : ''}" id="p360-hero" aria-label="Prepara 360 Regional 15 · Aula Virtual">
+      <div class="p360-blob b1"></div>
+      <div class="p360-blob b2"></div>
+      <div class="p360-grid"></div>
+
+      <div class="p360-hero-inner">
+        <div>
+          <div class="p360-eyebrow"><i></i> Dirección Regional 15 · Santo Domingo III</div>
+
+          <h1 class="p360-title" aria-label="Prepara 360 Regional 15">
+            <span class="p360-line">${p360Letters('Prepara 360')}</span>
+            <span class="p360-line gold">${p360Letters('Regional 15')}</span>
+          </h1>
+
+          <div class="p360-aula"><span>Aula Virtual</span></div>
+
+          <div class="p360-tag" style="--off:${offWord}">
+            <span class="p360-words">${words}</span>
+            <span>a tu ritmo, desde cualquier lugar.</span>
+          </div>
+
+          <p class="p360-desc">
+            Plataforma de formación en línea del Subsistema de Educación de Personas Jóvenes y Adultos (EPJA):
+            asignaturas, tareas, videoteca y foro de acompañamiento en un solo espacio.
+          </p>
+
+          <div class="p360-chips">${chips}</div>
+
+          <div class="p360-stats">
+            <div class="p360-stat"><b>${appState.students.length}</b><span>Estudiantes</span></div>
+            <div class="p360-stat"><b>${OFFICIAL_SUBJECTS.length}</b><span>Asignaturas</span></div>
+            <div class="p360-stat"><b>${appState.videos.length}</b><span>Videos</span></div>
+            <div class="p360-stat"><b>${appState.tasks.length}</b><span>Tareas</span></div>
+          </div>
+        </div>
+
+        <div class="p360-orbit" style="--off:${offSpin}" aria-label="Accesos rápidos">
+          <div class="p360-ring inner"></div>
+          <div class="p360-ring">${nodes}</div>
+          <button type="button" class="p360-core" onclick="switchTab('dashboard')" aria-label="Ir al inicio">
+            360°<small>PREPARA</small>
+          </button>
+        </div>
+      </div>
+      <div class="p360-flagbar"></div>
+    </section>`;
+}
+
+
+// ACCESO POR CÓDIGO SEGÚN EL ROL
+// Nota: los códigos en un HTML estático son una barrera básica, no autenticación segura de servidor.
+const ACCESS_CODES = { teacher: 'DOCENTE360', student: 'ESTUDIANTE360' };
+
+function renderLogin(message = '') {
+  const appContainer = document.getElementById('app');
+  if (!appContainer) return;
+  appContainer.innerHTML = `
+    <main style="min-height:100vh;display:flex;align-items:center;justify-content:center;padding:24px;background:linear-gradient(135deg,#071a45,#1d4ed8,#0d9488);">
+      <section style="background:#fff;width:100%;max-width:460px;padding:32px;border-radius:18px;box-shadow:0 20px 60px #0003;">
+        <div style="text-align:center;font-size:2.4rem;margin-bottom:8px;">🎓</div>
+        <h1 style="text-align:center;color:#0a1f4f;margin-bottom:6px;">PREPARA 360</h1>
+        <p style="text-align:center;color:#64748b;margin-bottom:24px;">Regional 15 · Aula Virtual</p>
+        <label for="accessRole" style="display:block;font-weight:700;margin-bottom:7px;">Tipo de acceso</label>
+        <select id="accessRole" class="form-control" style="margin-bottom:16px;">
+          <option value="student">Estudiante</option>
+          <option value="teacher">Docente</option>
+        </select>
+        <label for="accessCode" style="display:block;font-weight:700;margin-bottom:7px;">Código de acceso</label>
+        <input id="accessCode" class="form-control" type="password" autocomplete="current-password" placeholder="Escriba su código" style="margin-bottom:16px;" onkeydown="if(event.key==='Enter') loginWithCode()">
+        <button class="btn btn-primary" style="width:100%;padding:12px;" onclick="loginWithCode()">🔐 Entrar al aula virtual</button>
+        <p id="loginMessage" role="alert" style="color:#b91c1c;text-align:center;margin-top:14px;font-weight:700;">${message}</p>
+        <p style="font-size:.78rem;color:#64748b;text-align:center;margin-top:18px;">Seleccione su rol e introduzca el código correspondiente.</p>
+      </section>
+    </main>`;
+}
+
+function loginWithCode() {
+  const role = document.getElementById('accessRole')?.value;
+  const code = document.getElementById('accessCode')?.value || '';
+  if (!ACCESS_CODES[role] || code.trim() !== ACCESS_CODES[role]) {
+    const msg = document.getElementById('loginMessage');
+    if (msg) msg.textContent = 'Código incorrecto. Verifique el rol y vuelva a intentarlo.';
+    return;
+  }
+  sessionStorage.setItem('prepara360_authenticated_role', role);
+  appState.currentRole = role;
+  saveAppState(appState);
+  renderApp();
+  showToast(role === 'teacher' ? 'Acceso docente autorizado.' : 'Acceso de estudiante autorizado.', 'success');
+}
+
+function logoutAccess() {
+  sessionStorage.removeItem('prepara360_authenticated_role');
+  renderLogin();
+}
+
+function renderApp() {
+  const appContainer = document.getElementById('app');
+  if (!appContainer) return;
+  const authenticatedRole = sessionStorage.getItem('prepara360_authenticated_role');
+  if (!authenticatedRole || !['teacher', 'student'].includes(authenticatedRole)) {
+    renderLogin();
+    return;
+  }
+  appState.currentRole = authenticatedRole;
+
+  const isTeacher = appState.currentRole === 'teacher';
+  const isStudent = !isTeacher;
+  const currentStudent = getCurrentStudent();
+
+  const pendingTasksCount = appState.tasks.filter(t => t.status === 'pending').length;
+  const unreadDoubtsCount = appState.forumPosts.filter(p => p.category === 'duda' && p.status === 'abierto').length;
+
+  appContainer.innerHTML = `
+    <!-- Barra Superior Indicadora del Rol Activo -->
+    <div class="role-top-banner ${isTeacher ? 'teacher-mode' : 'student-mode'}">
+      <div style="display:flex; align-items:center; gap:0.6rem;">
+        <span style="font-size:1.1rem;">${isTeacher ? '👩‍🏫' : '🎓'}</span>
+        <span>
+          ${isTeacher 
+            ? '<strong>MODO DOCENTE (ADMINISTRADOR DEL AULA):</strong> Tienes permisos completos para editar, calificar, publicar tareas, videos y recursos didácticos.' 
+            : `<strong>MODO ESTUDIANTE:</strong> Navegando como <strong>${currentStudent.name}</strong>. Acceso para ver videos, descargar guías, subir tareas y participar en el foro.`}
+        </span>
+      </div>
+      <div style="display:flex; align-items:center; gap:0.75rem;">
+        <span class="badge" style="background:rgba(255,255,255,0.25); color:white;">
+          ${isTeacher ? 'Permisos: Docente Titular' : 'Permisos: Alumno (Solo Lectura y Entrega)'}
+        </span>
+      </div>
+    </div>
+
+    <!-- Cabecera de la Plataforma -->
+    <header class="app-header">
+      <div class="header-inner">
+        <!-- Logo y Nombre Oficial -->
+        <div class="brand-wrapper" onclick="switchTab('dashboard')">
+          <div class="brand-logo-icon">360°</div>
+          <div>
+            <div class="brand-title">
+              PREPARA 360
+              <span class="kids-pill">REGIONAL 15</span>
+            </div>
+            <div class="brand-subtitle">Aula Virtual · Educación de Personas Jóvenes y Adultos</div>
+          </div>
+        </div>
+
+        <!-- Controles de Rol y Perfil de Estudiante -->
+        <div style="display:flex; align-items:center; gap:0.75rem; flex-wrap:wrap;">
+          ${isStudent ? `
+            <!-- Selector para probar con diferentes alumnos registrados -->
+            <div style="display:flex; align-items:center; gap:0.4rem; background:#f1f5f9; padding:0.3rem 0.65rem; border-radius:var(--radius-md); border:1px solid var(--border);">
+              <span style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Alumno:</span>
+              <select onchange="changeActiveStudent(this.value)" style="border:none; background:transparent; font-size:0.82rem; font-weight:700; color:var(--primary); cursor:pointer; outline:none;">
+                ${appState.students.map(st => `
+                  <option value="${st.id}" ${st.id === currentStudent.id ? 'selected' : ''}>
+                    ${st.avatar} ${st.name}
+                  </option>
+                `).join('')}
+              </select>
+            </div>
+          ` : ''}
+
+          <div class="role-control-box">
+            <div class="role-badge-tag ${isTeacher ? 'teacher' : 'student'}">
+              <span>${isTeacher ? '👩‍🏫 Docente' : '🎓 Estudiante'}</span>
+            </div>
+            <div style="text-align:left;">
+              <div style="font-size:0.85rem; font-weight:800; color:var(--text-main);">
+                ${isTeacher ? appState.teacherProfile.name : currentStudent.name}
+              </div>
+              <div style="font-size:0.72rem; color:var(--text-muted);">
+                ${isTeacher ? 'Gestor de Contenidos' : `${currentStudent.grade}`}
+              </div>
+            </div>
+            ${isTeacher ? `<button class="btn btn-sm btn-outline" onclick="openTeacherProfileModal()" title="Cambiar mi nombre y cargo">✏️ Mi nombre</button>` : ''}
+            <button class="btn-toggle-role" onclick="logoutAccess()" title="Cerrar sesión y volver al acceso">
+              <span>🔒 Cerrar sesión</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Título principal interactivo -->
+    ${renderP360Hero()}
+
+    <!-- Layout Central -->
+    <div class="app-layout">
+      <!-- Navegación Lateral -->
+      <aside class="app-sidebar">
+        <div class="sidebar-nav">
+          <button class="nav-item ${currentTab === 'dashboard' ? 'active' : ''}" onclick="switchTab('dashboard')">
+            <span class="nav-icon">🏠</span> <span>Inicio & Resumen</span>
+          </button>
+          
+          <button class="nav-item ${currentTab === 'subjects' ? 'active' : ''}" onclick="switchTab('subjects')">
+            <span class="nav-icon">📚</span> <span>8 Asignaturas</span>
+            <span class="nav-badge-pill" style="background:#dbeafe; color:#1e40af;">8</span>
+          </button>
+
+          <button class="nav-item ${currentTab === 'tasks' ? 'active' : ''}" onclick="switchTab('tasks')">
+            <span class="nav-icon">📝</span> <span>Buzón de Tareas</span>
+            ${pendingTasksCount > 0 ? `<span class="nav-badge-pill" style="background:#fee2e2; color:#b91c1c;">${pendingTasksCount}</span>` : ''}
+          </button>
+
+          <button class="nav-item ${currentTab === 'resources' ? 'active' : ''}" onclick="switchTab('resources')">
+            <span class="nav-icon">📖</span> <span>Recursos Didácticos</span>
+            <span class="nav-badge-pill" style="background:#ccfbf1; color:#0f766e;">${appState.resources.length}</span>
+          </button>
+
+          <button class="nav-item ${currentTab === 'videos' ? 'active' : ''}" onclick="switchTab('videos')">
+            <span class="nav-icon">🎬</span> <span>Videoteca & Clases</span>
+            <span class="nav-badge-pill" style="background:#fef3c7; color:#b45309;">${appState.videos.length}</span>
+          </button>
+
+          <button class="nav-item ${currentTab === 'forum' ? 'active' : ''}" onclick="switchTab('forum')">
+            <span class="nav-icon">💬</span> <span>Foro Dudas & Discusión</span>
+            ${unreadDoubtsCount > 0 ? `<span class="nav-badge-pill" style="background:#f3e8ff; color:#7e22ce;">${unreadDoubtsCount}</span>` : ''}
+          </button>
+
+          <button class="nav-item ${currentTab === 'students' ? 'active' : ''}" onclick="switchTab('students')">
+            <span class="nav-icon">👥</span> <span>${isTeacher ? 'Registro de Alumnos' : 'Mi Carnet de Alumno'}</span>
+            ${isTeacher ? `<span class="nav-badge-pill" style="background:#f1f5f9; color:#475569;">${appState.students.length}</span>` : ''}
+          </button>
+
+          ${isTeacher ? `
+          <button class="nav-item ${currentTab === 'attendance' ? 'active' : ''}" onclick="switchTab('attendance')">
+            <span class="nav-icon">🗓️</span> <span>Registro de Asistencia</span>
+          </button>` : ''}
+        </div>
+
+        <!-- Tarjeta Informativa de Roles -->
+        <div class="role-info-card ${isTeacher ? 'teacher' : 'student'}">
+          <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.5rem;">
+            <span style="font-size:1.3rem;">${isTeacher ? '🛠️' : '📘'}</span>
+            <strong style="font-size:0.88rem; color:${isTeacher ? '#1e40af' : '#15803d'};">
+              ${isTeacher ? 'Panel de Administración Docente' : 'Espacio del Estudiante'}
+            </strong>
+          </div>
+          <p style="font-size:0.77rem; color:${isTeacher ? '#1e3a8a' : '#166534'}; line-height:1.45;">
+            ${isTeacher 
+              ? 'Puedes crear tareas, vincular guías didácticas, subir videos, calificar entregas y responder a los alumnos.' 
+              : 'Visualiza tus asignaturas, mira las cápsulas de video, descarga materiales y sube tus tareas a tiempo.'}
+          </p>
+
+        </div>
+
+        ${isTeacher ? `
+        <!-- Herramienta administrativa: solo docente -->
+        <div style="text-align:center;">
+          <button class="btn btn-outline btn-sm" style="font-size:0.7rem; color:var(--text-muted);" onclick="resetDemoData()">
+            Restaurar Datos Iniciales
+          </button>
+        </div>` : ''}
+      </aside>
+
+      <!-- Contenido Dinámico Según Pestaña -->
+      <main class="main-content">
+        ${renderMainContent()}
+      </main>
+    </div>
+  `;
+}
+
+// ============================================================
+// ROUTING / CONTENIDO POR PESTAÑAS
+// ============================================================
+function renderMainContent() {
+  switch (currentTab) {
+    case 'dashboard': return renderDashboardView();
+    case 'subjects': return renderSubjectsView();
+    case 'tasks': return renderTasksView();
+    case 'resources': return renderResourcesView();
+    case 'videos': return renderVideosView();
+    case 'forum': return renderForumView();
+    case 'students': return renderStudentsView();
+    case 'attendance': return renderAttendanceView();
+    default: return renderDashboardView();
+  }
+}
+
+// ------------------------------------------------------------
+// 1. DASHBOARD / INICIO
+// ------------------------------------------------------------
+function renderDashboardView() {
+  const isTeacher = appState.currentRole === 'teacher';
+  const currentStudent = getCurrentStudent();
+  const pendingTasks = appState.tasks.filter(t => t.status === 'pending');
+  const deliveredTasks = appState.tasks.filter(t => t.status === 'delivered');
+
+  return `
+    <!-- Banner de Bienvenida -->
+    <div class="hero-welcome-banner ${isTeacher ? 'teacher' : 'student'}">
+      <div>
+        <div style="display:inline-block; font-size:0.75rem; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; background:rgba(255,255,255,0.2); padding:0.25rem 0.75rem; border-radius:var(--radius-full); margin-bottom:0.75rem;">
+          ${isTeacher ? '👩‍🏫 Plataforma Docente · Prepara 360 Regional 15' : '🎓 Tu espacio de formación EPJA'}
+        </div>
+        <h2 style="font-size:1.75rem; font-weight:800; line-height:1.2; margin-bottom:0.5rem;">
+          ${isTeacher ? `Bienvenida, ${appState.teacherProfile.name}` : `Bienvenido(a), ${currentStudent.name} ${currentStudent.avatar}`}
+        </h2>
+        <p style="font-size:0.92rem; opacity:0.95; max-width:680px; line-height:1.5;">
+          ${isTeacher 
+            ? `Estás administrando el aula virtual de Prepara 360 Regional 15. Tienes ${appState.students.length} alumnos registrados y ${OFFICIAL_SUBJECTS.length} asignaturas fundamentales activas.` 
+            : `Tienes ${pendingTasks.length} tarea(s) pendiente(s) por entregar. Recuerda ver tus videos educativos y comentar en el foro de dudas si necesitas ayuda.`}
+        </p>
+      </div>
+
+      <div style="display:flex; flex-direction:column; gap:0.6rem; min-width:200px; z-index:2;">
+        ${isTeacher ? `
+          <button class="btn btn-secondary" onclick="openCreateTaskModal()">
+            ➕ Asignar Nueva Tarea
+          </button>
+          <button class="btn btn-outline" style="background:rgba(255,255,255,0.2); color:white; border-color:rgba(255,255,255,0.4);" onclick="openCreateResourceModal()">
+            📚 Publicar Guía / Recurso
+          </button>
+        ` : `
+          <button class="btn btn-accent" onclick="switchTab('tasks')">
+            📝 Ver Mis Tareas Pendientes
+          </button>
+          <button class="btn" style="background:rgba(255,255,255,0.2); color:white; border:1px solid rgba(255,255,255,0.4);" onclick="openAskDoubtModal()">
+            💡 Formular Pregunta al Docente
+          </button>
+        `}
+      </div>
+    </div>
+
+    <!-- Tarjetas de Estadísticas / Logros -->
+    <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(210px, 1fr)); gap:1rem;">
+      <div class="card" style="padding:1.2rem; display:flex; align-items:center; gap:0.85rem;">
+        <div style="width:48px; height:48px; border-radius:var(--radius-md); background:#dbeafe; color:#1e40af; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">
+          📚
+        </div>
+        <div>
+          <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Asignaturas Activas</div>
+          <div style="font-size:1.35rem; font-weight:800; color:var(--text-main);">${OFFICIAL_SUBJECTS.length} Materias</div>
+          <div style="font-size:0.7rem; color:#10b981; font-weight:700;">Plan Oficial EPJA</div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:1.2rem; display:flex; align-items:center; gap:0.85rem;">
+        <div style="width:48px; height:48px; border-radius:var(--radius-md); background:#fef3c7; color:#b45309; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">
+          📝
+        </div>
+        <div>
+          <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Tareas en Aula</div>
+          <div style="font-size:1.35rem; font-weight:800; color:var(--text-main);">${appState.tasks.length} Asignadas</div>
+          <div style="font-size:0.7rem; color:${pendingTasks.length > 0 ? '#ef4444' : '#10b981'}; font-weight:700;">
+            ${pendingTasks.length} pendiente(s)
+          </div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:1.2rem; display:flex; align-items:center; gap:0.85rem;">
+        <div style="width:48px; height:48px; border-radius:var(--radius-md); background:#ccfbf1; color:#0f766e; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">
+          🎬
+        </div>
+        <div>
+          <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Videoteca 360</div>
+          <div style="font-size:1.35rem; font-weight:800; color:var(--text-main);">${appState.videos.length} Videos</div>
+          <div style="font-size:0.7rem; color:#0f766e; font-weight:700;">Clases asíncronas</div>
+        </div>
+      </div>
+
+      <div class="card" style="padding:1.2rem; display:flex; align-items:center; gap:0.85rem;">
+        <div style="width:48px; height:48px; border-radius:var(--radius-md); background:#f3e8ff; color:#7e22ce; display:flex; align-items:center; justify-content:center; font-size:1.5rem;">
+          💬
+        </div>
+        <div>
+          <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Foro & Dudas</div>
+          <div style="font-size:1.35rem; font-weight:800; color:var(--text-main);">${appState.forumPosts.length} Hilos</div>
+          <div style="font-size:0.7rem; color:#7e22ce; font-weight:700;">Comunidad activa</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Vista Previa de las 8 Asignaturas Principales -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">📚 Asignaturas Fundamentales de Prepara 360</div>
+          <div class="card-subtitle">
+            ${isTeacher ? 'Como docente puedes añadir contenidos y administrar cada área educativa.' : 'Haz clic en cualquier asignatura para explorar sus guías, videos y tareas.'}
+          </div>
+        </div>
+        <button class="btn btn-sm btn-outline" onclick="switchTab('subjects')">Ver todas en detalle →</button>
+      </div>
+
+      <div class="subjects-grid">
+        ${OFFICIAL_SUBJECTS.slice(0, 4).map(sub => renderSubjectMiniCard(sub, isTeacher)).join('')}
+      </div>
+    </div>
+
+    <!-- Tareas Recientes -->
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">📝 Tareas & Actividades Escolares</div>
+          <div class="card-subtitle">
+            ${isTeacher ? 'Revisa entregas de los estudiantes o crea nuevas asignaciones.' : 'Sube tus evidencias y revisa las notas que te colocó tu profesor.'}
+          </div>
+        </div>
+        <div style="display:flex; gap:0.5rem;">
+          ${isTeacher ? `
+            <button class="btn btn-sm btn-primary" onclick="openCreateTaskModal()">➕ Asignar Tarea</button>
+          ` : ''}
+          <button class="btn btn-sm btn-outline" onclick="switchTab('tasks')">Ver Buzón Completo (${appState.tasks.length})</button>
+        </div>
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.86rem;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--border); color:var(--text-muted);">
+              <th style="padding:0.75rem 0.5rem;">Materia</th>
+              <th style="padding:0.75rem 0.5rem;">Título de la Tarea</th>
+              <th style="padding:0.75rem 0.5rem;">Fecha Límite</th>
+              <th style="padding:0.75rem 0.5rem;">Estado</th>
+              <th style="padding:0.75rem 0.5rem; text-align:right;">Acción</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${appState.tasks.slice(0, 4).map(task => `
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.75rem 0.5rem; font-weight:700;">
+                  ${task.subject}
+                </td>
+                <td style="padding:0.75rem 0.5rem;">
+                  <div style="font-weight:700; color:var(--text-main);">${task.title}</div>
+                  <div style="font-size:0.74rem; color:var(--text-muted);">Por: ${task.assignedBy}</div>
+                </td>
+                <td style="padding:0.75rem 0.5rem; color:var(--text-muted);">${task.dueDate}</td>
+                <td style="padding:0.75rem 0.5rem;">
+                  ${task.status === 'delivered' 
+                    ? `<span class="badge badge-success">✓ Entregada ${task.grade ? `(${task.grade}/100)` : ''}</span>`
+                    : `<span class="badge badge-warning">⏰ Pendiente</span>`}
+                </td>
+                <td style="padding:0.75rem 0.5rem; text-align:right;">
+                  ${isTeacher ? `
+                    <button class="btn btn-sm btn-secondary" onclick="openGradeTaskModal('${task.id}')">
+                      ${task.grade ? 'Revisar Nota' : 'Calificar'}
+                    </button>
+                  ` : `
+                    ${task.status === 'pending' 
+                      ? `<button class="btn btn-sm btn-primary" onclick="openSubmitTaskModal('${task.id}')">📤 Subir Tarea</button>`
+                      : `<button class="btn btn-sm btn-outline" onclick="openTaskDetailModal('${task.id}')">Ver Detalle</button>`}
+                  `}
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+      </div>
+    </div>
+  `;
+}
+
+// ------------------------------------------------------------
+// 2. VISTA DE LAS 8 ASIGNATURAS OFICIALES
+// ------------------------------------------------------------
+function renderSubjectsView() {
+  const isTeacher = appState.currentRole === 'teacher';
+
+  return `
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">📚 Las 8 Asignaturas de Prepara 360 Regional 15</div>
+          <div class="card-subtitle">
+            Estructura curricular interactiva con todas las áreas formativas fundamentales.
+            ${isTeacher ? 'Como docente puedes gestionar actividades específicas para cada asignatura.' : 'Explora tus materias y accede a sus videos, guías didácticas y tareas.'}
+          </div>
+        </div>
+        <div style="display:flex; gap:0.5rem;">
+          ${isTeacher ? `
+            <button class="btn btn-sm btn-outline" onclick="openTeachersModal()">👨‍🏫 Editar Maestros</button>
+            <button class="btn btn-sm btn-secondary" onclick="openCreateTaskModal()">➕ Añadir Tarea a Materia</button>
+            <button class="btn btn-sm btn-primary" onclick="openCreateResourceModal()">📚 Subir Material</button>
+          ` : `
+            <span class="badge badge-primary" style="font-size:0.8rem;">🎓 Vista de Estudiante</span>
+          `}
+        </div>
+      </div>
+
+      <div class="subjects-grid">
+        ${OFFICIAL_SUBJECTS.map(subject => {
+          const subjectTasks = appState.tasks.filter(t => t.subject === subject.name);
+          const subjectVideos = appState.videos.filter(v => v.subject === subject.name);
+          const subjectResources = appState.resources.filter(r => r.subject === subject.name);
+
+          return `
+            <div class="subject-card" style="--subject-color:${subject.color}; --subject-bg:${subject.bg};">
+              <div>
+                <div class="subject-card-header">
+                  <div class="subject-icon-box">${subject.icon}</div>
+                  <div>
+                    <h3 class="subject-name">${subject.name}</h3>
+                    <div class="subject-teacher">Docente: <strong>${subject.teacher}</strong></div>
+                  </div>
+                </div>
+
+                <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.45; margin-bottom:0.75rem;">
+                  ${subject.description}
+                </p>
+
+                <div class="subject-stats">
+                  <span>📝 <strong>${subjectTasks.length}</strong> tareas</span>
+                  <span>•</span>
+                  <span>📖 <strong>${subjectResources.length}</strong> guías</span>
+                  <span>•</span>
+                  <span>🎬 <strong>${subjectVideos.length}</strong> videos</span>
+                </div>
+              </div>
+
+              <div style="display:flex; gap:0.4rem; margin-top:0.75rem; border-top:1px solid var(--border); padding-top:0.75rem;">
+                <button class="btn btn-sm btn-outline" style="flex:1;" onclick="filterBySubjectAndGo('${subject.name}', 'tasks')">
+                  Ver Tareas
+                </button>
+                <button class="btn btn-sm btn-outline" style="flex:1;" onclick="filterBySubjectAndGo('${subject.name}', 'videos')">
+                  Ver Clases
+                </button>
+                ${isTeacher ? `
+                  <button class="btn btn-sm btn-outline" title="Editar maestro de esta materia" onclick="openTeachersModal('${subject.id}')">
+                    ✏️
+                  </button>
+                  <button class="btn btn-sm btn-primary" title="Asignar tarea para esta materia" onclick="openCreateTaskModal('${subject.name}')">
+                    ➕
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+          `;
+        }).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function renderSubjectMiniCard(subject, isTeacher) {
+  return `
+    <div class="subject-card" style="--subject-color:${subject.color}; --subject-bg:${subject.bg};">
+      <div class="subject-card-header">
+        <div class="subject-icon-box">${subject.icon}</div>
+        <div>
+          <h3 class="subject-name">${subject.name}</h3>
+          <div class="subject-teacher">${subject.teacher}</div>
+        </div>
+      </div>
+      <p style="font-size:0.8rem; color:var(--text-muted); line-height:1.4; margin-bottom:0.75rem;">
+        ${subject.description}
+      </p>
+      <div style="display:flex; justify-content:flex-end;">
+        <button class="btn btn-sm btn-outline" onclick="filterBySubjectAndGo('${subject.name}', 'tasks')">
+          Explorar Materia →
+        </button>
+      </div>
+    </div>
+  `;
+}
+
+function filterBySubjectAndGo(subjectName, targetTab) {
+  appState.activeSubjectFilter = subjectName;
+  saveAppState(appState);
+  switchTab(targetTab);
+}
+
+// ------------------------------------------------------------
+// 3. VISTA DE TAREAS Y EVALUACIONES
+// ------------------------------------------------------------
+function renderTasksView() {
+  const isTeacher = appState.currentRole === 'teacher';
+  const currentStudent = getCurrentStudent();
+
+  let filteredTasks = appState.tasks;
+  if (appState.activeSubjectFilter && appState.activeSubjectFilter !== 'all') {
+    filteredTasks = filteredTasks.filter(t => t.subject === appState.activeSubjectFilter);
+  }
+
+  return `
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">📝 Buzón de Tareas & Evidencias Regional 15</div>
+          <div class="card-subtitle">
+            ${isTeacher 
+              ? 'Administra las tareas del curso: puedes asignar nuevas actividades, modificar las instrucciones y calificar los envíos.' 
+              : `Buzón oficial de <strong>${currentStudent.name}</strong>. Consulta las instrucciones, descarga los materiales de apoyo y sube tus trabajos.`}
+          </div>
+        </div>
+        <div>
+          ${isTeacher ? `
+            <button class="btn btn-primary" onclick="openCreateTaskModal()">
+              ➕ Asignar Nueva Tarea
+            </button>
+          ` : `
+            <span class="badge badge-success" style="font-size:0.8rem;">
+              ✓ Alumno: ${currentStudent.name}
+            </span>
+          `}
+        </div>
+      </div>
+
+      <!-- Filtro por Asignatura -->
+      <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:1.25rem; flex-wrap:wrap; background:#f8fafc; padding:0.75rem; border-radius:var(--radius-md); border:1px solid var(--border);">
+        <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted);">Filtrar por Materia:</span>
+        <button class="btn btn-sm ${appState.activeSubjectFilter === 'all' ? 'btn-primary' : 'btn-outline'}" onclick="setSubjectFilter('all')">
+          Todas (${appState.tasks.length})
+        </button>
+        ${OFFICIAL_SUBJECTS.map(s => {
+          const count = appState.tasks.filter(t => t.subject === s.name).length;
+          return `
+            <button class="btn btn-sm ${appState.activeSubjectFilter === s.name ? 'btn-primary' : 'btn-outline'}" onclick="setSubjectFilter('${s.name}')">
+              ${s.icon} ${s.name} (${count})
+            </button>
+          `;
+        }).join('')}
+      </div>
+
+      <!-- Lista de Tareas -->
+      <div style="display:flex; flex-direction:column; gap:1.25rem;">
+        ${filteredTasks.length === 0 ? `
+          <div style="text-align:center; padding:3rem; color:var(--text-muted);">
+            <div style="font-size:3rem; margin-bottom:0.5rem;">✅</div>
+            <h4 style="font-size:1.1rem; font-weight:700;">No hay tareas asignadas para esta materia aún</h4>
+            <p style="font-size:0.85rem; margin-top:0.25rem;">
+              ${isTeacher ? 'Haz clic en "Asignar Nueva Tarea" para crear una.' : '¡Buen trabajo! Estás al día con tus actividades escolares.'}
+            </p>
+          </div>
+        ` : filteredTasks.map(task => `
+          <div style="border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.35rem; background:white; box-shadow:var(--shadow-sm); position:relative;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:0.5rem; margin-bottom:0.6rem;">
+              <div>
+                <span class="badge badge-primary" style="margin-bottom:0.35rem;">${task.subject}</span>
+                <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-main);">${task.title}</h3>
+                <div style="font-size:0.78rem; color:var(--text-muted); margin-top:0.2rem;">
+                  Asignado por: <strong>${task.assignedBy}</strong>
+                </div>
+              </div>
+              <div style="display:flex; gap:0.5rem; align-items:center;">
+                ${task.status === 'delivered' ? `
+                  <span class="badge badge-success" style="font-size:0.82rem;">
+                    ✓ Calificación: ${task.grade ? task.grade + '/100' : 'Entregada (Por calificar)'}
+                  </span>
+                ` : `
+                  <span class="badge badge-warning" style="font-size:0.82rem;">
+                    ⏰ Fecha Límite: ${task.dueDate}
+                  </span>
+                `}
+
+                ${isTeacher ? `
+                  <button class="btn btn-sm btn-outline" style="color:#ef4444; border-color:#fecaca;" onclick="deleteTask('${task.id}')" title="Eliminar Tarea (Solo Docente)">
+                    🗑️
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+
+            <p style="font-size:0.88rem; color:#334155; line-height:1.5; margin:0.65rem 0;">
+              ${task.instructions}
+            </p>
+
+            ${task.supportingResource ? `
+              <div style="background:#eff6ff; border:1px solid #bfdbfe; border-radius:var(--radius-md); padding:0.65rem 0.95rem; margin:0.75rem 0; display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:0.5rem;">
+                <div style="font-size:0.82rem; color:#1e40af; display:flex; align-items:center; gap:0.4rem;">
+                  <span>📖</span>
+                  <span><strong>Material de Apoyo:</strong> ${task.supportingResource}</span>
+                </div>
+                <button class="btn btn-sm btn-outline" style="background:white; font-size:0.75rem; color:#1e40af; border-color:#93c5fd;" onclick="switchTab('resources')">
+                  Ver en Recursos Didácticos →
+                </button>
+              </div>
+            ` : ''}
+
+            <!-- Datos de Entrega -->
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(200px, 1fr)); gap:0.75rem; background:#f8fafc; padding:0.75rem 1rem; border-radius:var(--radius-md); margin:0.75rem 0; font-size:0.82rem;">
+              <div>
+                <span style="color:var(--text-muted); display:block; font-size:0.75rem;">Estado:</span>
+                <strong style="color:${task.status === 'delivered' ? '#10b981' : '#d97706'};">
+                  ${task.status === 'delivered' ? '✓ Entregada por el alumno' : 'Pendiente de entrega'}
+                </strong>
+              </div>
+              <div>
+                <span style="color:var(--text-muted); display:block; font-size:0.75rem;">Archivo de evidencia:</span>
+                <span style="font-weight:600; color:var(--text-main);">
+                  ${task.fileName || 'Ninguno aún'}
+                </span>
+              </div>
+              <div>
+                <span style="color:var(--text-muted); display:block; font-size:0.75rem;">Puntaje Oficial:</span>
+                <strong style="color:var(--primary);">${task.grade ? task.grade + ' / 100 pts' : '100 pts posibles'}</strong>
+              </div>
+            </div>
+
+            ${task.feedback ? `
+              <div style="background:#f0fdf4; border:1px solid #bbf7d0; border-radius:var(--radius-md); padding:0.85rem 1rem; margin-top:0.75rem;">
+                <div style="font-size:0.8rem; font-weight:800; color:#166534; margin-bottom:0.25rem;">
+                  ⭐ Retroalimentación del Docente (${task.grade}/100):
+                </div>
+                <p style="font-size:0.85rem; color:#14532d; line-height:1.4;">${task.feedback}</p>
+                ${task.studentNotes ? `
+                  <div style="font-size:0.76rem; color:#15803d; margin-top:0.35rem; font-style:italic;">
+                    Nota del estudiante: "${task.studentNotes}"
+                  </div>
+                ` : ''}
+              </div>
+            ` : ''}
+
+            <!-- Botones de Acción según Rol -->
+            <div style="margin-top:1rem; display:flex; justify-content:flex-end; gap:0.5rem;">
+              ${isTeacher ? `
+                <button class="btn btn-sm btn-secondary" onclick="openGradeTaskModal('${task.id}')">
+                  ⭐ ${task.grade ? 'Modificar Calificación y Retroalimentación' : 'Calificar Entrega del Alumno'}
+                </button>
+              ` : `
+                ${task.status === 'pending' ? `
+                  <button class="btn btn-primary" onclick="openSubmitTaskModal('${task.id}')">
+                    📤 Subir Tarea Ahora
+                  </button>
+                  <button class="btn btn-outline btn-sm" onclick="openAskDoubtModal('${task.subject}', 'Duda sobre la tarea: ${task.title}')">
+                    💡 Preguntar al Docente
+                  </button>
+                ` : `
+                  <button class="btn btn-outline btn-sm" onclick="openTaskDetailModal('${task.id}')">
+                    ✅ Ver Mi Entrega Registrada
+                  </button>
+                `}
+              `}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+function setSubjectFilter(subjectName) {
+  appState.activeSubjectFilter = subjectName;
+  saveAppState(appState);
+  renderApp();
+}
+
+// ------------------------------------------------------------
+// 4. VISTA DE RECURSOS DIDÁCTICOS
+// ------------------------------------------------------------
+function renderResourcesView() {
+  const isTeacher = appState.currentRole === 'teacher';
+
+  return `
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">📖 Recursos Didácticos & Guías de Autoestudio 360°</div>
+          <div class="card-subtitle">
+            ${isTeacher 
+              ? 'Publica y administra fichas en PDF, lecturas y materiales descargables para las 8 asignaturas.' 
+              : 'Biblioteca de materiales didácticos preparados por tus profesores para estudiar y completar tus tareas.'}
+          </div>
+        </div>
+        <div>
+          ${isTeacher ? `
+            <button class="btn btn-secondary" onclick="openCreateResourceModal()">
+              ➕ Publicar Nuevo Recurso Didáctico
+            </button>
+          ` : `
+            <span class="badge badge-secondary">Biblioteca Abierta</span>
+          `}
+        </div>
+      </div>
+
+      <!-- Cuadrícula de Materiales -->
+      <div style="display:grid; grid-template-columns:repeat(auto-fill, minmax(290px, 1fr)); gap:1.25rem;">
+        ${appState.resources.map(res => `
+          <div style="border:1px solid var(--border); border-radius:var(--radius-lg); padding:1.25rem; background:white; display:flex; flex-direction:column; justify-content:space-between; box-shadow:var(--shadow-sm);">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.6rem;">
+                <span class="badge badge-primary">${res.subject}</span>
+                <span class="badge badge-neutral">${res.type}</span>
+              </div>
+              <h4 style="font-size:1.05rem; font-weight:800; color:var(--text-main); margin-bottom:0.35rem;">
+                ${res.title}
+              </h4>
+              <p style="font-size:0.83rem; color:var(--text-muted); line-height:1.45; margin-bottom:0.75rem;">
+                ${res.description}
+              </p>
+              <div style="font-size:0.75rem; color:var(--text-muted); margin-bottom:1rem;">
+                Profesor: <strong>${res.uploadedBy}</strong> • Tamaño: ${res.size}
+              </div>
+            </div>
+
+            <div style="display:flex; gap:0.5rem;">
+              <button class="btn btn-outline btn-sm" style="flex:1;" onclick="downloadResourceSimulated('${res.title}')">
+                📥 Descargar Material (${res.downloads})
+              </button>
+              ${isTeacher ? `
+                <button class="btn btn-sm btn-outline" style="color:#ef4444; border-color:#fecaca;" onclick="deleteResource('${res.id}')" title="Eliminar Recurso (Solo Docente)">
+                  🗑️
+                </button>
+              ` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// ------------------------------------------------------------
+// 5. VIDEOTECA Y CLASES REGIONAL KIDS
+// ------------------------------------------------------------
+function renderVideosView() {
+  const isTeacher = appState.currentRole === 'teacher';
+  const currentStudent = getCurrentStudent();
+
+  return `
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">🎬 Videoteca 360 & Cápsulas Educativas</div>
+          <div class="card-subtitle">
+            ${isTeacher 
+              ? 'Sube y organiza clases asíncronas grabadas para que los estudiantes a distancia acrediten su avance.' 
+              : `Cápsulas pedagógicas para <strong>${currentStudent.name}</strong>. Míralas a tu ritmo para aprender los temas escolares.`}
+          </div>
+        </div>
+        <div>
+          ${isTeacher ? `
+            <button class="btn btn-primary" onclick="openAddVideoModal()">
+              ➕ Añadir Nueva Clase Grabada
+            </button>
+          ` : `
+            <span class="badge badge-success">✓ Acreditación Automática</span>
+          `}
+        </div>
+      </div>
+
+      <!-- Cuadrícula de Videos -->
+      <div class="video-card-grid">
+        ${appState.videos.map(vid => `
+          <div class="video-card">
+            <div>
+              <div class="video-thumbnail-box" onclick="playVideoModal('${vid.id}')">
+                <div class="video-thumbnail-overlay">
+                  <div class="play-btn-circle">▶</div>
+                  <div style="font-size:0.8rem; font-weight:700;">Reproducir Clase (${vid.duration})</div>
+                </div>
+              </div>
+
+              <div style="padding:1.15rem;">
+                <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.4rem;">
+                  <span class="badge badge-primary">${vid.subject}</span>
+                  <span style="font-size:0.75rem; color:var(--text-muted); font-weight:600;">⏱️ ${vid.duration}</span>
+                </div>
+                <h4 style="font-size:1.05rem; font-weight:800; color:var(--text-main); margin-bottom:0.35rem;">
+                  ${vid.title}
+                </h4>
+                <p style="font-size:0.82rem; color:var(--text-muted); line-height:1.4; margin-bottom:0.6rem;">
+                  ${vid.summary}
+                </p>
+                <div style="font-size:0.75rem; color:var(--text-muted);">
+                  Docente: <strong>${vid.teacher}</strong> • ${vid.date}
+                </div>
+              </div>
+            </div>
+
+            <div style="padding:0.75rem 1.15rem; background:#f8fafc; border-top:1px solid var(--border); display:flex; justify-content:space-between; align-items:center;">
+              <div>
+                ${vid.watched 
+                  ? `<span style="font-size:0.76rem; color:#10b981; font-weight:700;">✓ Asistencia Registrada</span>`
+                  : `<span style="font-size:0.76rem; color:#d97706; font-weight:700;">⏳ Pendiente de ver</span>`}
+              </div>
+              <div style="display:flex; gap:0.4rem;">
+                <button class="btn btn-sm btn-primary" onclick="playVideoModal('${vid.id}')">
+                  ${vid.watched ? 'Volver a Ver' : 'Ver y Acreditar'}
+                </button>
+                ${isTeacher ? `
+                  <button class="btn btn-sm btn-outline" style="color:#ef4444; border-color:#fecaca;" onclick="deleteVideo('${vid.id}')" title="Eliminar Video (Solo Docente)">
+                    🗑️
+                  </button>
+                ` : ''}
+              </div>
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// ------------------------------------------------------------
+// 6. FORO DE DUDAS Y DISCUSIÓN (ESPACIO VITAL REQUERIDO)
+// ------------------------------------------------------------
+function renderForumView() {
+  const isTeacher = appState.currentRole === 'teacher';
+  const currentStudent = getCurrentStudent();
+
+  return `
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">💬 Foro de Dudas & Mesa de Discusión</div>
+          <div class="card-subtitle">
+            Espacio interactivo para compartir dudas con los profesores y participar en debates formativos de cada materia.
+          </div>
+        </div>
+        <div style="display:flex; gap:0.5rem;">
+          <button class="btn btn-primary" onclick="openAskDoubtModal()">
+            💡 Formular Pregunta o Duda
+          </button>
+          ${isTeacher ? `
+            <button class="btn btn-secondary" onclick="openCreateDiscussionModal()">
+              🗣️ Crear Tema de Debate
+            </button>
+          ` : ''}
+        </div>
+      </div>
+
+      <!-- Barra de Filtros del Foro -->
+      <div class="forum-filter-bar">
+        <span style="font-size:0.82rem; font-weight:700; color:var(--text-muted);">Ver:</span>
+        <button class="btn btn-sm btn-primary">Todos los Temas (${appState.forumPosts.length})</button>
+        <button class="btn btn-sm btn-outline" onclick="filterForumByCategory('duda')">💡 Solo Dudas Académicas</button>
+        <button class="btn btn-sm btn-outline" onclick="filterForumByCategory('discusion')">🗣️ Foros de Discusión y Debate</button>
+      </div>
+
+      <!-- Hilos del Foro -->
+      <div style="display:flex; flex-direction:column; gap:1.25rem;">
+        ${appState.forumPosts.map(post => `
+          <div class="forum-thread-card ${post.pinned ? 'pinned' : ''}">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:0.6rem; flex-wrap:wrap; gap:0.5rem;">
+              <div style="display:flex; align-items:center; gap:0.5rem;">
+                <span class="badge ${post.category === 'duda' ? 'badge-primary' : 'badge-purple'}">
+                  ${post.category === 'duda' ? '💡 Duda Académica' : '🗣️ Debate Temático'}
+                </span>
+                <span class="badge badge-secondary">${post.subject}</span>
+                ${post.pinned ? `<span class="badge badge-warning">📌 Fijado por el Docente</span>` : ''}
+                ${post.status === 'resuelto' ? `<span class="badge badge-success">✓ Aclarada</span>` : ''}
+              </div>
+              <span style="font-size:0.75rem; color:var(--text-muted);">${post.date}</span>
+            </div>
+
+            <h3 style="font-size:1.15rem; font-weight:800; color:var(--text-main); margin-bottom:0.4rem;">
+              ${post.title}
+            </h3>
+
+            <div style="display:flex; align-items:center; gap:0.5rem; margin-bottom:0.75rem;">
+              <span style="font-size:1.2rem;">${post.authorAvatar || '👤'}</span>
+              <span style="font-size:0.85rem; font-weight:700; color:var(--text-main);">${post.author}</span>
+              <span class="badge ${post.authorRole === 'teacher' ? 'badge-primary' : 'badge-neutral'}" style="font-size:0.7rem;">
+                ${post.authorRole === 'teacher' ? 'Docente Titular' : 'Estudiante'}
+              </span>
+            </div>
+
+            <p style="font-size:0.88rem; color:#334155; line-height:1.5; background:#f8fafc; padding:0.9rem; border-radius:var(--radius-md);">
+              ${post.content}
+            </p>
+
+            <!-- Respuestas en el Hilo -->
+            <div style="margin-top:1rem;">
+              <div style="font-size:0.82rem; font-weight:800; color:var(--text-muted); margin-bottom:0.5rem;">
+                Comentarios y Respuestas (${post.replies.length}):
+              </div>
+
+              ${post.replies.map(reply => `
+                <div class="forum-reply-box ${reply.authorRole === 'teacher' ? 'teacher-reply' : ''}">
+                  <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.35rem;">
+                    <div style="display:flex; align-items:center; gap:0.4rem;">
+                      <span>${reply.authorAvatar || (reply.authorRole === 'teacher' ? '👩‍🏫' : '🎓')}</span>
+                      <strong style="font-size:0.85rem; color:${reply.authorRole === 'teacher' ? '#0f766e' : '#1e293b'};">
+                        ${reply.author}
+                      </strong>
+                      ${reply.authorRole === 'teacher' ? `<span class="badge badge-secondary" style="font-size:0.65rem;">✓ Docente Verificado</span>` : ''}
+                    </div>
+                    <span style="font-size:0.72rem; color:var(--text-muted);">${reply.date}</span>
+                  </div>
+                  <p style="font-size:0.85rem; color:${reply.authorRole === 'teacher' ? '#134e4a' : '#334155'}; line-height:1.45;">
+                    ${reply.text}
+                  </p>
+                </div>
+              `).join('')}
+            </div>
+
+            <!-- Botones de Acción en el Foro -->
+            <div style="margin-top:1rem; display:flex; justify-content:flex-end; gap:0.5rem; border-top:1px solid var(--border); padding-top:0.75rem;">
+              <button class="btn btn-sm btn-primary" onclick="openReplyForumModal('${post.id}')">
+                💬 Comentar / Responder
+              </button>
+
+              ${isTeacher ? `
+                ${post.status !== 'resuelto' ? `
+                  <button class="btn btn-sm btn-outline" style="color:#10b981; border-color:#bbf7d0;" onclick="markForumPostResolved('${post.id}')">
+                    ✓ Marcar como Resuelta
+                  </button>
+                ` : ''}
+                <button class="btn btn-sm btn-outline" style="color:#ef4444; border-color:#fecaca;" onclick="deleteForumPost('${post.id}')">
+                  🗑️
+                </button>
+              ` : ''}
+            </div>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `;
+}
+
+// ------------------------------------------------------------
+// 7. VISTA DE REGISTRO DE ALUMNOS (DOCENTE) / CARNET (ALUMNO)
+// ------------------------------------------------------------
+function renderStudentsView() {
+  const isTeacher = appState.currentRole === 'teacher';
+  const currentStudent = getCurrentStudent();
+
+  if (!isTeacher) {
+    // VISTA DE ALUMNO: Solo ve su propio carnet y progreso
+    return `
+      <div class="card">
+        <div class="card-header">
+          <div>
+            <div class="card-title">🎓 Mi Carnet de Estudiante · Regional 15</div>
+            <div class="card-subtitle">
+              Ficha oficial de matrícula del estudiante en modalidad a distancia. Solo el docente tiene permisos para modificar la matrícula general.
+            </div>
+          </div>
+          <span class="badge badge-success" style="font-size:0.82rem;">Matrícula Activa 2026</span>
+        </div>
+
+        <div style="background:linear-gradient(135deg, #eff6ff 0%, #f0fdfa 100%); border:2px solid #bfdbfe; border-radius:var(--radius-lg); padding:1.75rem; display:flex; align-items:center; gap:1.5rem; flex-wrap:wrap; margin-bottom:1.5rem;">
+          <div style="width:84px; height:84px; border-radius:50%; background:white; display:flex; align-items:center; justify-content:center; font-size:3rem; box-shadow:var(--shadow-md); border:3px solid var(--primary);">
+            ${currentStudent.avatar}
+          </div>
+          <div>
+            <div style="font-size:0.8rem; font-weight:800; color:var(--primary); text-transform:uppercase;">Prepara 360 Regional 15</div>
+            <h2 style="font-size:1.6rem; font-weight:800; color:var(--text-main); margin:0.2rem 0;">${currentStudent.name}</h2>
+            <div style="font-size:0.85rem; color:var(--text-muted); display:flex; gap:0.75rem; flex-wrap:wrap;">
+              <span>🆔 Matrícula: <strong>${currentStudent.code}</strong></span>
+              <span>•</span>
+              <span>🏫 Grado: <strong>${currentStudent.grade}</strong></span>
+              <span>•</span>
+              <span>🌐 ${currentStudent.modality}</span>
+            </div>
+          </div>
+        </div>
+
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:1rem;">
+          <div class="card" style="background:#f8fafc; padding:1.2rem;">
+            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Asistencia Acreditada</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#10b981; margin:0.3rem 0;">${currentStudent.attendanceRate}%</div>
+            <div style="font-size:0.74rem; color:var(--text-muted);">Calculado por videos y tareas</div>
+          </div>
+
+          <div class="card" style="background:#f8fafc; padding:1.2rem;">
+            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Estrellas de Aprendizaje</div>
+            <div style="font-size:1.5rem; font-weight:800; color:#f59e0b; margin:0.3rem 0;">⭐ ${currentStudent.stars}</div>
+            <div style="font-size:0.74rem; color:var(--text-muted);">Puntos ganados por tareas</div>
+          </div>
+
+          <div class="card" style="background:#f8fafc; padding:1.2rem;">
+            <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">Tareas Completadas</div>
+            <div style="font-size:1.5rem; font-weight:800; color:var(--primary); margin:0.3rem 0;">
+              ${appState.tasks.filter(t => t.status === 'delivered').length} / ${appState.tasks.length}
+            </div>
+            <div style="font-size:0.74rem; color:var(--text-muted);">Evidencias enviadas a tiempo</div>
+          </div>
+        </div>
+      </div>
+    `;
+  }
+
+  // VISTA DE DOCENTE: Administra la lista de alumnos
+  return `
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">👥 Registro y Control de Matrícula de Alumnos</div>
+          <div class="card-subtitle">
+            Padrón oficial de estudiantes de Prepara 360 Regional 15. Como docente puedes registrar nuevos alumnos, modificar sus datos y supervisar su avance.
+          </div>
+        </div>
+        <button class="btn btn-primary" onclick="openRegisterStudentModal()">
+          ➕ Registrar Nuevo Alumno
+        </button>
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.86rem;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--border); color:var(--text-muted);">
+              <th style="padding:0.75rem 0.5rem;">Avatar</th>
+              <th style="padding:0.75rem 0.5rem;">Matrícula ID</th>
+              <th style="padding:0.75rem 0.5rem;">Nombre Completo</th>
+              <th style="padding:0.75rem 0.5rem;">Grado / Grupo</th>
+              <th style="padding:0.75rem 0.5rem;">Modalidad</th>
+              <th style="padding:0.75rem 0.5rem;">Asistencia</th>
+              <th style="padding:0.75rem 0.5rem; text-align:right;">Acciones Docente</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${appState.students.map(st => `
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.75rem 0.5rem; font-size:1.5rem;">${st.avatar}</td>
+                <td style="padding:0.75rem 0.5rem; font-family:monospace; font-weight:700; color:var(--primary);">
+                  ${st.code}
+                </td>
+                <td style="padding:0.75rem 0.5rem;">
+                  <div style="font-weight:700; color:var(--text-main);">${st.name}</div>
+                  <div style="font-size:0.74rem; color:var(--text-muted);">${st.email}</div>
+                </td>
+                <td style="padding:0.75rem 0.5rem; color:var(--text-muted);">${st.grade}</td>
+                <td style="padding:0.75rem 0.5rem;">
+                  <span class="badge ${st.modality.includes('No Presencial') ? 'badge-secondary' : 'badge-neutral'}">
+                    ${st.modality}
+                  </span>
+                </td>
+                <td style="padding:0.75rem 0.5rem;">
+                  <span style="font-weight:700; color:${st.attendanceRate >= 90 ? '#10b981' : '#f59e0b'};">
+                    ${st.attendanceRate}%
+                  </span>
+                </td>
+                <td style="padding:0.75rem 0.5rem; text-align:right;">
+                  <div style="display:flex; justify-content:flex-end; gap:0.35rem;">
+                    <button class="btn btn-sm btn-outline" onclick="openEditStudentModal('${st.id}')" title="Modificar datos del estudiante">
+                      ✏️ Editar
+                    </button>
+                    ${true ? `
+                      <button class="btn btn-sm btn-outline" style="color:#ef4444; border-color:#fecaca;" onclick="deleteStudent('${st.id}')" title="Dar de baja">
+                        🗑️
+                      </button>
+                    ` : ''}
+                  </div>
+                </td>
+              </tr>
+            `).join('')}
+          </tbody>
+        </table>
+        ${appState.students.length === 0 ? `<div style="text-align:center; padding:2rem; color:var(--text-muted);">No hay alumnos registrados. Usa «➕ Registrar Nuevo Alumno» para agregar a tus estudiantes.</div>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================
+// REGISTRO DE ASISTENCIA (SOLO DOCENTE)
+// ============================================================
+function todayStr() {
+  const d = new Date();
+  return d.getFullYear() + '-' + String(d.getMonth() + 1).padStart(2, '0') + '-' + String(d.getDate()).padStart(2, '0');
+}
+let attendanceDate = todayStr();
+const ATT_STATES = [
+  ['P', 'Presente', '#10b981'],
+  ['T', 'Tardanza', '#f59e0b'],
+  ['E', 'Excusa', '#3b82f6'],
+  ['A', 'Ausente', '#ef4444']
+];
+
+function getAttendanceStats(studentId) {
+  const att = appState.attendance || {};
+  const c = { P: 0, T: 0, E: 0, A: 0 };
+  Object.keys(att).forEach(d => {
+    const v = att[d] && att[d][studentId];
+    if (v && c[v] !== undefined) c[v]++;
+  });
+  const base = c.P + c.T + c.A; // las excusas no cuentan en contra
+  return { ...c, total: c.P + c.T + c.E + c.A, pct: base ? Math.round((c.P + c.T) / base * 100) : null };
+}
+
+function recalcAttendanceRate(studentId) {
+  const st = appState.students.find(s => s.id === studentId);
+  if (!st) return;
+  const s = getAttendanceStats(studentId);
+  if (s.pct !== null) st.attendanceRate = s.pct;
+}
+
+function setAttendance(studentId, code) {
+  if (appState.currentRole !== 'teacher') return;
+  if (!appState.attendance) appState.attendance = {};
+  if (!appState.attendance[attendanceDate]) appState.attendance[attendanceDate] = {};
+  const day = appState.attendance[attendanceDate];
+  if (day[studentId] === code) { delete day[studentId]; } else { day[studentId] = code; }
+  if (Object.keys(day).length === 0) delete appState.attendance[attendanceDate];
+  recalcAttendanceRate(studentId);
+  saveAppState(appState);
+  renderApp();
+}
+
+function markAllAttendance(code) {
+  if (appState.currentRole !== 'teacher' || !appState.students.length) return;
+  if (!appState.attendance) appState.attendance = {};
+  appState.attendance[attendanceDate] = appState.attendance[attendanceDate] || {};
+  appState.students.forEach(s => {
+    appState.attendance[attendanceDate][s.id] = code;
+    recalcAttendanceRate(s.id);
+  });
+  saveAppState(appState);
+  renderApp();
+  showToast('Asistencia del día marcada para todos.', 'success');
+}
+
+function clearAttendanceDay() {
+  if (appState.currentRole !== 'teacher') return;
+  if (!appState.attendance || !appState.attendance[attendanceDate]) return;
+  if (!confirm('¿Borrar el registro de asistencia de esta fecha?')) return;
+  delete appState.attendance[attendanceDate];
+  appState.students.forEach(s => recalcAttendanceRate(s.id));
+  saveAppState(appState);
+  renderApp();
+  showToast('Registro del día eliminado.', 'info');
+}
+
+function changeAttendanceDate(v) {
+  if (!v) return;
+  attendanceDate = v;
+  renderApp();
+}
+
+function shiftAttendanceDate(n) {
+  const [y, m, d] = attendanceDate.split('-').map(Number);
+  const nd = new Date(y, m - 1, d + n);
+  attendanceDate = nd.getFullYear() + '-' + String(nd.getMonth() + 1).padStart(2, '0') + '-' + String(nd.getDate()).padStart(2, '0');
+  renderApp();
+}
+
+function exportAttendanceCSV() {
+  const att = appState.attendance || {};
+  const names = { P: 'Presente', T: 'Tardanza', E: 'Excusa', A: 'Ausente' };
+  const rows = [['Fecha', 'Matrícula', 'Nombre', 'Grado', 'Estado']];
+  Object.keys(att).sort().forEach(d => {
+    appState.students.forEach(s => {
+      if (att[d][s.id]) rows.push([d, s.code, s.name, s.grade, names[att[d][s.id]]]);
+    });
+  });
+  const csv = '\uFEFF' + rows.map(r => r.map(c => '"' + String(c).replace(/"/g, '""') + '"').join(',')).join('\r\n');
+  const a = document.createElement('a');
+  a.href = URL.createObjectURL(new Blob([csv], { type: 'text/csv;charset=utf-8' }));
+  a.download = 'asistencia_prepara360_regional15.csv';
+  document.body.appendChild(a);
+  a.click();
+  a.remove();
+  showToast('Archivo de asistencia descargado.', 'success');
+}
+
+function renderAttendanceView() {
+  if (appState.currentRole !== 'teacher') {
+    return `<div class="card"><div class="card-title">🗓️ Registro de Asistencia</div><p style="color:var(--text-muted); margin-top:0.5rem;">Solo el docente puede ver y editar el registro de asistencia. Tu porcentaje aparece en tu carnet.</p></div>`;
+  }
+  const [y, m, d] = attendanceDate.split('-').map(Number);
+  const pretty = new Date(y, m - 1, d).toLocaleDateString('es-DO', { weekday: 'long', day: 'numeric', month: 'long', year: 'numeric' });
+  const day = (appState.attendance && appState.attendance[attendanceDate]) || {};
+  const counts = { P: 0, T: 0, E: 0, A: 0, none: 0 };
+  appState.students.forEach(s => { const v = day[s.id]; if (v) counts[v]++; else counts.none++; });
+
+  return `
+    <div class="card">
+      <div class="card-header">
+        <div>
+          <div class="card-title">🗓️ Registro de Estudiantes y Asistencia</div>
+          <div class="card-subtitle">
+            Agrega, edita o elimina estudiantes y marca la asistencia de cada día. El porcentaje cuenta Presente y Tardanza sobre los días registrados; las Excusas no cuentan en contra.
+          </div>
+        </div>
+        <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
+          <button class="btn btn-primary" onclick="openRegisterStudentModal()">➕ Agregar Estudiante</button>
+          <button class="btn btn-outline" onclick="exportAttendanceCSV()">⬇️ Descargar Asistencia</button>
+        </div>
+      </div>
+
+      <div style="display:flex; align-items:center; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem;">
+        <button class="btn btn-sm btn-outline" onclick="shiftAttendanceDate(-1)">◀</button>
+        <input type="date" class="form-control" style="width:auto;" value="${attendanceDate}" onchange="changeAttendanceDate(this.value)" />
+        <button class="btn btn-sm btn-outline" onclick="shiftAttendanceDate(1)">▶</button>
+        <button class="btn btn-sm btn-outline" onclick="changeAttendanceDate(todayStr())">Hoy</button>
+        <strong style="text-transform:capitalize; margin-left:0.5rem;">${pretty}</strong>
+      </div>
+
+      <div style="display:flex; gap:0.5rem; flex-wrap:wrap; margin-bottom:1rem; font-size:0.82rem;">
+        ${ATT_STATES.map(([c, label, color]) => `<span class="badge" style="background:${color}20; color:${color}; border:1px solid ${color}55;">${label}: <strong>${counts[c]}</strong></span>`).join('')}
+        <span class="badge badge-neutral">Sin marcar: <strong>${counts.none}</strong></span>
+        <span style="flex:1;"></span>
+        <button class="btn btn-sm btn-outline" onclick="markAllAttendance('P')">✅ Todos presentes</button>
+        <button class="btn btn-sm btn-outline" style="color:#ef4444; border-color:#fecaca;" onclick="clearAttendanceDay()">🧹 Borrar este día</button>
+      </div>
+
+      <div style="overflow-x:auto;">
+        <table style="width:100%; border-collapse:collapse; text-align:left; font-size:0.86rem;">
+          <thead>
+            <tr style="border-bottom:2px solid var(--border); color:var(--text-muted);">
+              <th style="padding:0.75rem 0.5rem;">Estudiante</th>
+              <th style="padding:0.75rem 0.5rem;">Asistencia del día</th>
+              <th style="padding:0.75rem 0.5rem;">Acumulado (P · T · E · A)</th>
+              <th style="padding:0.75rem 0.5rem;">%</th>
+              <th style="padding:0.75rem 0.5rem; text-align:right;">Registro</th>
+            </tr>
+          </thead>
+          <tbody>
+            ${appState.students.map(st => {
+              const s = getAttendanceStats(st.id);
+              const cur = day[st.id];
+              return `
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.75rem 0.5rem;">
+                  <div style="font-weight:700; color:var(--text-main);">${st.avatar} ${escAttr(st.name)}</div>
+                  <div style="font-size:0.74rem; color:var(--text-muted);">${escAttr(st.code)} · ${escAttr(st.grade)}</div>
+                </td>
+                <td style="padding:0.75rem 0.5rem;">
+                  <div style="display:flex; gap:0.3rem; flex-wrap:wrap;">
+                    ${ATT_STATES.map(([c, label, color]) => `
+                      <button type="button" onclick="setAttendance('${st.id}', '${c}')" title="${label}"
+                        style="cursor:pointer; padding:0.3rem 0.6rem; border-radius:999px; font-size:0.74rem; font-weight:700; border:1.5px solid ${color}; background:${cur === c ? color : 'transparent'}; color:${cur === c ? '#fff' : color};">${label}</button>
+                    `).join('')}
+                  </div>
+                </td>
+                <td style="padding:0.75rem 0.5rem; color:var(--text-muted);">${s.P} · ${s.T} · ${s.E} · ${s.A}</td>
+                <td style="padding:0.75rem 0.5rem;">
+                  <span style="font-weight:700; color:${(s.pct === null ? st.attendanceRate : s.pct) >= 90 ? '#10b981' : '#f59e0b'};">${s.pct === null ? st.attendanceRate : s.pct}%</span>
+                </td>
+                <td style="padding:0.75rem 0.5rem; text-align:right;">
+                  <div style="display:flex; justify-content:flex-end; gap:0.35rem;">
+                    <button class="btn btn-sm btn-outline" onclick="openEditStudentModal('${st.id}')" title="Editar estudiante">✏️</button>
+                    <button class="btn btn-sm btn-outline" style="color:#ef4444; border-color:#fecaca;" onclick="deleteStudent('${st.id}')" title="Eliminar estudiante">🗑️</button>
+                  </div>
+                </td>
+              </tr>`;
+            }).join('')}
+          </tbody>
+        </table>
+        ${appState.students.length === 0 ? `<div style="text-align:center; padding:2rem; color:var(--text-muted);">Aún no hay estudiantes. Pulsa «➕ Agregar Estudiante» para registrar a tus alumnos.</div>` : ''}
+      </div>
+    </div>
+  `;
+}
+
+// ============================================================
+// MODALES Y ACCIONES INTERACTIVAS
+// ============================================================
+
+// 1. MODAL: ASIGNAR NUEVA TAREA (SOLO DOCENTE)
+function openCreateTaskModal(defaultSubject = '') {
+  if (appState.currentRole !== 'teacher') {
+    showToast('Solo los docentes pueden asignar tareas.', 'warning');
+    return;
+  }
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-create-task">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-main);">
+            👩‍🏫 Asignar Nueva Tarea a los Estudiantes
+          </h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-create-task')">✕</button>
+        </div>
+
+        <form onsubmit="handleCreateTaskSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Asignatura:</label>
+            <select class="form-control" id="task-subj" required>
+              ${OFFICIAL_SUBJECTS.map(s => `
+                <option value="${s.name}" ${defaultSubject === s.name ? 'selected' : ''}>
+                  ${s.icon} ${s.name} (Profesor: ${s.teacher})
+                </option>
+              `).join('')}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Título de la Actividad / Tarea:</label>
+            <input type="text" class="form-control" id="task-title" placeholder="Ej. Taller de Lectura: Resumen de fábulas" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Instrucciones y Criterios para los Estudiantes:</label>
+            <textarea class="form-control" id="task-instructions" rows="3" placeholder="Explica paso a paso qué deben hacer y cómo subir su archivo..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Recurso Didáctico de Apoyo (Opcional):</label>
+            <select class="form-control" id="task-resource">
+              <option value="">Ninguno (Tarea independiente)</option>
+              ${appState.resources.map(r => `
+                <option value="${r.title}">${r.title} (${r.subject})</option>
+              `).join('')}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Fecha Límite de Entrega:</label>
+            <input type="text" class="form-control" id="task-due" placeholder="Ej. 05 Noviembre 2026, 18:00" required />
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.5rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-create-task')">Cancelar</button>
+            <button type="submit" class="btn btn-primary">➕ Publicar Tarea para el Aula</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleCreateTaskSubmit(e) {
+  e.preventDefault();
+  const subj = document.getElementById('task-subj').value;
+  const title = document.getElementById('task-title').value.trim();
+  const instructions = document.getElementById('task-instructions').value.trim();
+  const resource = document.getElementById('task-resource').value;
+  const due = document.getElementById('task-due').value.trim();
+
+  const officialSubject = OFFICIAL_SUBJECTS.find(s => s.name === subj);
+
+  const newTask = {
+    id: 'task-' + Date.now(),
+    subject: subj,
+    title: title,
+    instructions: instructions,
+    supportingResource: resource,
+    dueDate: due,
+    assignedBy: officialSubject ? officialSubject.teacher : appState.teacherProfile.name,
+    status: 'pending',
+    grade: null,
+    feedback: null,
+    fileName: null,
+    studentNotes: null
+  };
+
+  appState.tasks.unshift(newTask);
+  saveAppState(appState);
+  closeModal('modal-create-task');
+  renderApp();
+  showToast(`¡Tarea "${title}" asignada exitosamente!`, 'success');
+}
+
+function deleteTask(taskId) {
+  if (appState.currentRole !== 'teacher') return;
+  if (confirm('¿Estás seguro de eliminar esta tarea del aula virtual?')) {
+    appState.tasks = appState.tasks.filter(t => t.id !== taskId);
+    saveAppState(appState);
+    renderApp();
+    showToast('Tarea eliminada correctamente.', 'info');
+  }
+}
+
+// 2. MODAL: SUBIR TAREA (SOLO ESTUDIANTE)
+function openSubmitTaskModal(taskId) {
+  const task = appState.tasks.find(t => t.id === taskId);
+  const currentStudent = getCurrentStudent();
+  if (!task) return;
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-submit-task">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-main);">
+            📤 Subir Entrega de Tarea: ${task.title}
+          </h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-submit-task')">✕</button>
+        </div>
+
+        <div style="background:#f8fafc; padding:1rem; border-radius:var(--radius-md); margin-bottom:1.25rem;">
+          <div style="font-size:0.75rem; color:var(--text-muted); font-weight:700;">${task.subject}</div>
+          <div style="font-size:0.9rem; font-weight:700; color:var(--text-main); margin-top:0.25rem;">${task.title}</div>
+          <div style="font-size:0.82rem; color:#475569; margin-top:0.35rem;">${task.instructions}</div>
+        </div>
+
+        <form onsubmit="handleSubmitTaskForm(event, '${taskId}')">
+          <div style="border:2px dashed #93c5fd; border-radius:var(--radius-md); padding:1.75rem; text-align:center; background:#eff6ff; margin-bottom:1rem;">
+            <div style="font-size:2rem; margin-bottom:0.25rem;">📁</div>
+            <div style="font-weight:700; font-size:0.9rem; color:#1e40af;">Selecciona tu archivo de evidencia (PDF, Imagen, Word)</div>
+            <div style="font-size:0.75rem; color:#60a5fa; margin-top:0.25rem;">Máximo 25 MB</div>
+            <input type="file" id="submission-file" style="margin-top:0.75rem; font-size:0.8rem;" />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Comentarios para tu profesor (Opcional):</label>
+            <textarea class="form-control" id="submission-notes" rows="2" placeholder="Ej. Docente, resolví todos los ejercicios y adjunto mis anotaciones..."></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-submit-task')">Cancelar</button>
+            <button type="submit" class="btn btn-success">✅ Confirmar y Enviar Tarea</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleSubmitTaskForm(e, taskId) {
+  e.preventDefault();
+  const task = appState.tasks.find(t => t.id === taskId);
+  const currentStudent = getCurrentStudent();
+  const notes = document.getElementById('submission-notes').value.trim();
+
+  if (task) {
+    task.status = 'delivered';
+    task.fileName = `${currentStudent.name.replace(/ /g, '_')}_${task.subject.replace(/ /g, '')}_Evidencia.pdf`;
+    task.studentNotes = notes || 'Entrega realizada por plataforma.';
+    
+    // Si aún no tenía calificación simulada, docente puede calificarla después
+    task.grade = 98;
+    task.feedback = '¡Excelente trabajo! Cumpliste con todos los criterios solicitados de forma limpia y ordenada.';
+    
+    currentStudent.stars += 10;
+    currentStudent.attendanceRate = Math.min(100, currentStudent.attendanceRate + 1);
+
+    saveAppState(appState);
+    closeModal('modal-submit-task');
+    renderApp();
+    fireConfetti();
+    showToast(`¡Tarea enviada con éxito por ${currentStudent.name}! Ganaste 10 estrellas ⭐`, 'success');
+  }
+}
+
+// 3. MODAL: CALIFICAR TAREA (SOLO DOCENTE)
+function openGradeTaskModal(taskId) {
+  if (appState.currentRole !== 'teacher') return;
+  const task = appState.tasks.find(t => t.id === taskId);
+  if (!task) return;
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-grade-task">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <h3 style="font-size:1.15rem; font-weight:800;">Calificar y Retroalimentar Entrega</h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-grade-task')">✕</button>
+        </div>
+
+        <div style="background:#f8fafc; padding:1rem; border-radius:var(--radius-md); margin-bottom:1.25rem;">
+          <div style="font-size:0.75rem; color:var(--text-muted);">${task.subject}</div>
+          <h4 style="font-size:1rem; font-weight:700; color:var(--text-main); margin-top:0.25rem;">${task.title}</h4>
+          <div style="font-size:0.8rem; color:#475569; margin-top:0.35rem;">
+            Archivo entregado: <strong>${task.fileName || 'Evidencia_Escolar.pdf'}</strong>
+          </div>
+          ${task.studentNotes ? `
+            <div style="font-size:0.75rem; color:#1e40af; background:#eff6ff; padding:0.5rem; border-radius:var(--radius-sm); margin-top:0.5rem;">
+              Mensaje del alumno: "${task.studentNotes}"
+            </div>
+          ` : ''}
+        </div>
+
+        <form onsubmit="handleGradeTaskSubmit(event, '${taskId}')">
+          <div class="form-group">
+            <label class="form-label">Calificación Numérica (0 a 100 pts):</label>
+            <input type="number" class="form-control" id="grade-val" min="0" max="100" value="${task.grade || 95}" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Retroalimentación Cualitativa y Felicitaciones:</label>
+            <textarea class="form-control" id="grade-fb" rows="3" placeholder="Escribe observaciones motivadoras para el estudiante..." required>${task.feedback || '¡Excelente trabajo! Procedimientos detallados y claros de acuerdo a la rúbrica.'}</textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-grade-task')">Cancelar</button>
+            <button type="submit" class="btn btn-secondary">⭐ Guardar Calificación</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleGradeTaskSubmit(e, taskId) {
+  e.preventDefault();
+  const grade = parseInt(document.getElementById('grade-val').value, 10);
+  const fb = document.getElementById('grade-fb').value.trim();
+
+  const task = appState.tasks.find(t => t.id === taskId);
+  if (task) {
+    task.grade = grade;
+    task.feedback = fb;
+    task.status = 'delivered';
+    saveAppState(appState);
+    closeModal('modal-grade-task');
+    renderApp();
+    showToast(`Calificación de ${grade}/100 guardada y enviada.`, 'success');
+  }
+}
+
+// 4. MODAL: DETALLE DE TAREA PARA EL ALUMNO
+function openTaskDetailModal(taskId) {
+  const task = appState.tasks.find(t => t.id === taskId);
+  if (!task) return;
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-task-detail">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <h3 style="font-size:1.15rem; font-weight:800;">Detalle Oficial de la Tarea</h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-task-detail')">✕</button>
+        </div>
+
+        <div style="background:#f8fafc; padding:1.2rem; border-radius:var(--radius-md); margin-bottom:1.25rem;">
+          <span class="badge badge-primary">${task.subject}</span>
+          <h4 style="font-size:1.1rem; font-weight:800; margin-top:0.4rem;">${task.title}</h4>
+          <p style="font-size:0.86rem; color:#334155; margin-top:0.5rem;">${task.instructions}</p>
+          <div style="margin-top:0.75rem; font-size:0.8rem; color:var(--text-muted);">
+            Archivo entregado: <strong>${task.fileName || 'Evidencia_Cargada.pdf'}</strong>
+          </div>
+        </div>
+
+        <div style="border-left:4px solid #10b981; background:#f0fdf4; padding:1rem; border-radius:0 var(--radius-md) var(--radius-md) 0; margin-bottom:1.5rem;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.25rem;">
+            <strong style="font-size:0.9rem; color:#166534;">Calificación Obtenida:</strong>
+            <span class="badge badge-success" style="font-size:0.85rem;">${task.grade || 100} / 100 pts</span>
+          </div>
+          <p style="font-size:0.85rem; color:#14532d; line-height:1.45;">${task.feedback || 'Excelente resolución.'}</p>
+        </div>
+
+        <div style="display:flex; justify-content:flex-end;">
+          <button class="btn btn-outline" onclick="closeModal('modal-task-detail')">Cerrar</button>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+// 5. MODAL: CREAR RECURSO DIDÁCTICO (SOLO DOCENTE)
+function openCreateResourceModal() {
+  if (appState.currentRole !== 'teacher') {
+    showToast('Solo los docentes pueden publicar recursos didácticos.', 'warning');
+    return;
+  }
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-create-res">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-main);">
+            📚 Publicar Nuevo Recurso Didáctico
+          </h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-create-res')">✕</button>
+        </div>
+
+        <form onsubmit="handleCreateResourceSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Asignatura:</label>
+            <select class="form-control" id="res-subj" required>
+              ${OFFICIAL_SUBJECTS.map(s => `
+                <option value="${s.name}">${s.icon} ${s.name}</option>
+              `).join('')}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Nombre del Material o Guía:</label>
+            <input type="text" class="form-control" id="res-title" placeholder="Ej. Ficha de Ejercicios de Ortografía y Acentuación" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Descripción didáctica:</label>
+            <textarea class="form-control" id="res-desc" rows="3" placeholder="Explica cómo usar este material..." required></textarea>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group">
+              <label class="form-label">Tipo de Recurso:</label>
+              <select class="form-control" id="res-type">
+                <option value="Guía en PDF">Guía en PDF</option>
+                <option value="Ficha Didáctica">Ficha Didáctica</option>
+                <option value="Póster Ilustrado">Póster Ilustrado</option>
+                <option value="Presentación">Presentación</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <label class="form-label">Tamaño estimado:</label>
+              <input type="text" class="form-control" id="res-size" value="2.1 MB" />
+            </div>
+          </div>
+
+          <div style="border:2px dashed var(--border); border-radius:var(--radius-md); padding:1.25rem; text-align:center; background:#f8fafc; margin-bottom:1rem;">
+            <div style="font-size:1.8rem; margin-bottom:0.25rem;">📥</div>
+            <div style="font-size:0.85rem; font-weight:700;">Selecciona el archivo didáctico desde tu dispositivo</div>
+            <input type="file" style="margin-top:0.5rem; font-size:0.8rem;" />
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-create-res')">Cancelar</button>
+            <button type="submit" class="btn btn-secondary">📚 Publicar en Biblioteca Digital</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleCreateResourceSubmit(e) {
+  e.preventDefault();
+  const subj = document.getElementById('res-subj').value;
+  const title = document.getElementById('res-title').value.trim();
+  const desc = document.getElementById('res-desc').value.trim();
+  const type = document.getElementById('res-type').value;
+  const size = document.getElementById('res-size').value.trim() || '2.0 MB';
+
+  const newRes = {
+    id: 'res-' + Date.now(),
+    subject: subj,
+    title: title,
+    description: desc,
+    type: type,
+    size: size,
+    uploadedBy: appState.teacherProfile.name,
+    downloads: 0
+  };
+
+  appState.resources.unshift(newRes);
+  saveAppState(appState);
+  closeModal('modal-create-res');
+  renderApp();
+  showToast(`¡Recurso "${title}" publicado en la biblioteca!`, 'success');
+}
+
+function deleteResource(resId) {
+  if (appState.currentRole !== 'teacher') return;
+  if (confirm('¿Deseas eliminar este recurso didáctico?')) {
+    appState.resources = appState.resources.filter(r => r.id !== resId);
+    saveAppState(appState);
+    renderApp();
+    showToast('Recurso didáctico eliminado.', 'info');
+  }
+}
+
+// 6. MODAL: AÑADIR VIDEO (SOLO DOCENTE)
+function openAddVideoModal() {
+  if (appState.currentRole !== 'teacher') {
+    showToast('Solo los docentes pueden añadir videos a la videoteca.', 'warning');
+    return;
+  }
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-add-video">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-main);">
+            🎬 Publicar Nueva Clase o Video Educativo
+          </h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-add-video')">✕</button>
+        </div>
+
+        <form onsubmit="handleAddVideoSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Asignatura:</label>
+            <select class="form-control" id="vid-subj" required>
+              ${OFFICIAL_SUBJECTS.map(s => `
+                <option value="${s.name}">${s.icon} ${s.name}</option>
+              `).join('')}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Título de la Sesión o Video:</label>
+            <input type="text" class="form-control" id="vid-title" placeholder="Ej. El Ecosistema Marino y la Cadena Alimenticia" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Resumen de Contenido:</label>
+            <textarea class="form-control" id="vid-summary" rows="3" placeholder="Explica qué conceptos aprenderán los estudiantes en este video..." required></textarea>
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group">
+              <label class="form-label">Duración aproximada:</label>
+              <input type="text" class="form-control" id="vid-duration" value="18 min" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Enlace o archivo de video:</label>
+              <input type="text" class="form-control" id="vid-url" placeholder="https://youtube.com/... o archivo" value="video_leccion.mp4" />
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-add-video')">Cancelar</button>
+            <button type="submit" class="btn btn-primary">🎬 Publicar Video</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleAddVideoSubmit(e) {
+  e.preventDefault();
+  const subj = document.getElementById('vid-subj').value;
+  const title = document.getElementById('vid-title').value.trim();
+  const summary = document.getElementById('vid-summary').value.trim();
+  const duration = document.getElementById('vid-duration').value.trim();
+
+  const newVid = {
+    id: 'vid-' + Date.now(),
+    subject: subj,
+    title: title,
+    teacher: appState.teacherProfile.name,
+    duration: duration,
+    date: 'Hoy',
+    summary: summary,
+    watched: false,
+    chapters: ['00:00 Introducción', '06:00 Desarrollo del tema', '14:00 Conclusiones']
+  };
+
+  appState.videos.unshift(newVid);
+  saveAppState(appState);
+  closeModal('modal-add-video');
+  renderApp();
+  showToast(`¡Video "${title}" agregado a la videoteca!`, 'success');
+}
+
+function deleteVideo(vidId) {
+  if (appState.currentRole !== 'teacher') return;
+  if (confirm('¿Deseas eliminar este video de la videoteca?')) {
+    appState.videos = appState.videos.filter(v => v.id !== vidId);
+    saveAppState(appState);
+    renderApp();
+    showToast('Video eliminado.', 'info');
+  }
+}
+
+// 7. MODAL: REPRODUCTOR DE VIDEO INTERACTIVO
+function playVideoModal(vidId) {
+  const vid = appState.videos.find(v => v.id === vidId);
+  const currentStudent = getCurrentStudent();
+  if (!vid) return;
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-player">
+      <div class="modal-box" style="max-width:800px; padding:0; overflow:hidden;">
+        <!-- Pantalla de Video Simulada -->
+        <div style="position:relative; width:100%; padding-top:56.25%; background:#0f172a;">
+          <div style="position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; color:white; padding:2rem; text-align:center; background:linear-gradient(180deg, rgba(15,23,42,0.6) 0%, rgba(15,23,42,0.95) 100%);">
+            <div style="width:72px; height:72px; border-radius:50%; background:var(--accent-coral); color:white; display:flex; align-items:center; justify-content:center; font-size:2rem; margin-bottom:1rem; box-shadow:0 0 25px rgba(244,63,94,0.6); cursor:pointer;" onclick="simulateVideoFinish('${vid.id}')">
+              ▶
+            </div>
+            <h3 style="font-size:1.35rem; font-weight:800;">${vid.title}</h3>
+            <div style="font-size:0.85rem; color:#94a3b8; margin-top:0.4rem;">
+              ${vid.subject} • Docente: ${vid.teacher} • Duración: ${vid.duration}
+            </div>
+            <div style="display:flex; gap:0.5rem; margin-top:1rem; flex-wrap:wrap; justify-content:center;">
+              ${vid.chapters.map(c => `
+                <span class="badge" style="background:rgba(255,255,255,0.15); color:white;">${c}</span>
+              `).join('')}
+            </div>
+          </div>
+        </div>
+
+        <div style="padding:1.5rem; background:white;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:0.75rem;">
+            <div>
+              <span class="badge badge-primary">${vid.subject}</span>
+              <span style="font-size:0.82rem; color:var(--text-muted); margin-left:0.5rem;">Fecha: ${vid.date}</span>
+            </div>
+            <div>
+              ${vid.watched ? `<span class="badge badge-success">✓ Asistencia Validada</span>` : `<span class="badge badge-warning">En reproducción</span>`}
+            </div>
+          </div>
+
+          <p style="font-size:0.88rem; color:#334155; line-height:1.5; margin-bottom:1.25rem;">
+            ${vid.summary}
+          </p>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; border-top:1px solid var(--border); padding-top:1rem; flex-wrap:wrap; gap:0.75rem;">
+            <button class="btn btn-sm btn-outline" onclick="openAskDoubtModal('${vid.subject}', 'Duda sobre la clase en video: ${vid.title}')">
+              💡 Preguntar al Profesor sobre este video
+            </button>
+            <div style="display:flex; gap:0.5rem;">
+              <button class="btn btn-sm btn-success" onclick="simulateVideoFinish('${vid.id}')">
+                ⭐ Completar Video y Validar Asistencia
+              </button>
+              <button class="btn btn-sm btn-outline" onclick="closeModal('modal-player')">Cerrar</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `;
+}
+
+function simulateVideoFinish(vidId) {
+  const vid = appState.videos.find(v => v.id === vidId);
+  const currentStudent = getCurrentStudent();
+  if (vid) {
+    vid.watched = true;
+    currentStudent.attendanceRate = Math.min(100, currentStudent.attendanceRate + 1);
+    currentStudent.stars += 5;
+    saveAppState(appState);
+    closeModal('modal-player');
+    renderApp();
+    fireConfetti();
+    showToast(`¡Clase completada! Asistencia registrada para ${currentStudent.name} ⭐`, 'success');
+  }
+}
+
+// 8. MODAL: FORMULAR DUDA AL PROFESOR
+function openAskDoubtModal(defaultSubject = '', defaultTopic = '') {
+  const currentStudent = getCurrentStudent();
+  const isTeacher = appState.currentRole === 'teacher';
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-ask-doubt">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-main);">
+            💡 Formular Pregunta o Duda en el Foro
+          </h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-ask-doubt')">✕</button>
+        </div>
+
+        <p style="font-size:0.85rem; color:var(--text-muted); margin-bottom:1.25rem;">
+          Preguntando como: <strong>${isTeacher ? appState.teacherProfile.name : currentStudent.name}</strong>. Tu pregunta quedará visible para que el docente y tus compañeros puedan orientarte.
+        </p>
+
+        <form onsubmit="handleAskDoubtSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Asignatura:</label>
+            <select class="form-control" id="doubt-subj" required>
+              ${OFFICIAL_SUBJECTS.map(s => `
+                <option value="${s.name}" ${defaultSubject && s.name.includes(defaultSubject) ? 'selected' : ''}>
+                  ${s.icon} ${s.name} (Profesor: ${s.teacher})
+                </option>
+              `).join('')}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Tema de tu duda:</label>
+            <input type="text" class="form-control" id="doubt-title" placeholder="Ej. Duda en la resolución del problema 3" value="${defaultTopic}" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Explica claramente tu duda o pregunta:</label>
+            <textarea class="form-control" id="doubt-content" rows="4" placeholder="Escribe en qué parte te detuviste o qué no comprendiste bien..." required></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-ask-doubt')">Cancelar</button>
+            <button type="submit" class="btn btn-primary">💡 Publicar Pregunta</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleAskDoubtSubmit(e) {
+  e.preventDefault();
+  const subj = document.getElementById('doubt-subj').value;
+  const title = document.getElementById('doubt-title').value.trim();
+  const content = document.getElementById('doubt-content').value.trim();
+  const isTeacher = appState.currentRole === 'teacher';
+  const currentStudent = getCurrentStudent();
+
+  const newPost = {
+    id: 'f-' + Date.now(),
+    category: 'duda',
+    subject: subj,
+    title: title,
+    author: isTeacher ? appState.teacherProfile.name : currentStudent.name,
+    authorRole: isTeacher ? 'teacher' : 'student',
+    authorAvatar: isTeacher ? '👩‍🏫' : currentStudent.avatar,
+    date: 'Justo ahora',
+    content: content,
+    status: 'abierto',
+    pinned: false,
+    replies: []
+  };
+
+  appState.forumPosts.unshift(newPost);
+  saveAppState(appState);
+  closeModal('modal-ask-doubt');
+  switchTab('forum');
+  showToast('¡Tu pregunta ha sido publicada en el foro de dudas!', 'success');
+}
+
+// 9. MODAL: CREAR TEMA DE DISCUSIÓN (SOLO DOCENTE)
+function openCreateDiscussionModal() {
+  if (appState.currentRole !== 'teacher') return;
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-disc">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="font-size:1.2rem; font-weight:800; color:var(--text-main);">
+            🗣️ Iniciar Tema de Discusión & Debate
+          </h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-disc')">✕</button>
+        </div>
+
+        <form onsubmit="handleCreateDiscussionSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Asignatura:</label>
+            <select class="form-control" id="disc-subj" required>
+              ${OFFICIAL_SUBJECTS.map(s => `
+                <option value="${s.name}">${s.icon} ${s.name}</option>
+              `).join('')}
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Pregunta Detonadora o Título del Debate:</label>
+            <input type="text" class="form-control" id="disc-title" placeholder="Ej. ¿Qué acciones podemos hacer en la escuela contra el acoso?" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Planteamiento pedagógico para los estudiantes:</label>
+            <textarea class="form-control" id="disc-content" rows="4" placeholder="Invita a los alumnos a compartir opiniones, experiencias o lecturas..." required></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-disc')">Cancelar</button>
+            <button type="submit" class="btn btn-secondary">🗣️ Abrir Foro de Discusión</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleCreateDiscussionSubmit(e) {
+  e.preventDefault();
+  const subj = document.getElementById('disc-subj').value;
+  const title = document.getElementById('disc-title').value.trim();
+  const content = document.getElementById('disc-content').value.trim();
+
+  const newPost = {
+    id: 'f-' + Date.now(),
+    category: 'discusion',
+    subject: subj,
+    title: title,
+    author: appState.teacherProfile.name,
+    authorRole: 'teacher',
+    authorAvatar: '👩‍🏫',
+    date: 'Justo ahora',
+    content: content,
+    status: 'abierto',
+    pinned: true,
+    replies: []
+  };
+
+  appState.forumPosts.unshift(newPost);
+  saveAppState(appState);
+  closeModal('modal-disc');
+  switchTab('forum');
+  showToast('¡Tema de discusión publicado con éxito!', 'success');
+}
+
+// 10. MODAL: RESPONDER EN EL FORO
+function openReplyForumModal(postId) {
+  const post = appState.forumPosts.find(p => p.id === postId);
+  if (!post) return;
+  const isTeacher = appState.currentRole === 'teacher';
+  const currentStudent = getCurrentStudent();
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-reply">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1rem;">
+          <h3 style="font-size:1.15rem; font-weight:800;">Responder en: "${post.title}"</h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-reply')">✕</button>
+        </div>
+
+        <div style="background:#f8fafc; padding:0.85rem; border-radius:var(--radius-md); margin-bottom:1.25rem; font-size:0.85rem; color:#334155;">
+          <strong>${post.author}:</strong> "${post.content}"
+        </div>
+
+        <form onsubmit="handleReplyForumSubmit(event, '${postId}')">
+          <div class="form-group">
+            <label class="form-label">
+              ${isTeacher ? 'Tu respuesta oficial como docente:' : `Tu comentario o respuesta como ${currentStudent.name}:`}
+            </label>
+            <textarea class="form-control" id="forum-reply-text" rows="4" placeholder="Escribe aquí tu aporte o solución..." required></textarea>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-reply')">Cancelar</button>
+            <button type="submit" class="btn btn-primary">💬 Publicar Respuesta</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleReplyForumSubmit(e, postId) {
+  e.preventDefault();
+  const text = document.getElementById('forum-reply-text').value.trim();
+  const post = appState.forumPosts.find(p => p.id === postId);
+  const isTeacher = appState.currentRole === 'teacher';
+  const currentStudent = getCurrentStudent();
+
+  if (post && text) {
+    post.replies.push({
+      id: 'rep-' + Date.now(),
+      author: isTeacher ? appState.teacherProfile.name : currentStudent.name,
+      authorRole: isTeacher ? 'teacher' : 'student',
+      authorAvatar: isTeacher ? '👩‍🏫' : currentStudent.avatar,
+      date: 'Justo ahora',
+      text: text
+    });
+
+    if (isTeacher && post.category === 'duda') {
+      post.status = 'resuelto';
+    }
+
+    saveAppState(appState);
+    closeModal('modal-reply');
+    renderApp();
+    showToast('¡Comentario publicado en el foro!', 'success');
+  }
+}
+
+function markForumPostResolved(postId) {
+  const post = appState.forumPosts.find(p => p.id === postId);
+  if (post) {
+    post.status = 'resuelto';
+    saveAppState(appState);
+    renderApp();
+    showToast('Tema marcado como aclarado/resuelto.', 'info');
+  }
+}
+
+function deleteForumPost(postId) {
+  if (appState.currentRole !== 'teacher') return;
+  if (confirm('¿Deseas eliminar este hilo de discusión?')) {
+    appState.forumPosts = appState.forumPosts.filter(p => p.id !== postId);
+    saveAppState(appState);
+    renderApp();
+    showToast('Hilo de discusión eliminado.', 'info');
+  }
+}
+
+// 11. REGISTRO Y EDICIÓN DE ALUMNOS (DOCENTE)
+function openRegisterStudentModal() {
+  if (appState.currentRole !== 'teacher') return;
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-st-reg">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="font-size:1.2rem; font-weight:800;">👥 Matricular Nuevo Estudiante</h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-st-reg')">✕</button>
+        </div>
+
+        <form onsubmit="handleRegisterStudentSubmit(event)">
+          <div class="form-group">
+            <label class="form-label">Nombre Completo del Estudiante:</label>
+            <input type="text" class="form-control" id="st-reg-name" placeholder="Ej. Camila Santos Rivas" required />
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group">
+              <label class="form-label">Matrícula ID:</label>
+              <input type="text" class="form-control" id="st-reg-code" value="R15-2026-${Math.floor(105 + Math.random()*800)}" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Avatar:</label>
+              <select class="form-control" id="st-reg-avatar">
+                <option value="👨">👨 Hombre</option>
+                <option value="👩">👩 Mujer</option>
+                <option value="🧑">🧑 Joven</option>
+                <option value="🎓">🎓 Graduando</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Grado Escolar:</label>
+            <input type="text" class="form-control" id="st-reg-grade" value="6to Primaria / 1er Secundaria" required />
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Modalidad:</label>
+            <select class="form-control" id="st-reg-modality">
+              <option value="100% No Presencial (A Distancia)">100% No Presencial (A Distancia)</option>
+              <option value="Semipresencial Flexible">Semipresencial Flexible</option>
+            </select>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-st-reg')">Cancelar</button>
+            <button type="submit" class="btn btn-primary">➕ Matricular Alumno</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleRegisterStudentSubmit(e) {
+  e.preventDefault();
+  const name = document.getElementById('st-reg-name').value.trim();
+  const code = document.getElementById('st-reg-code').value.trim();
+  const avatar = document.getElementById('st-reg-avatar').value;
+  const grade = document.getElementById('st-reg-grade').value.trim();
+  const modality = document.getElementById('st-reg-modality').value;
+
+  const newStudent = {
+    id: 'std-' + Date.now(),
+    code: code,
+    name: name,
+    email: `${name.toLowerCase().replace(/[^a-z]/g, '.')}@prepara360.edu.do`,
+    grade: grade,
+    modality: modality,
+    avatar: avatar,
+    stars: 30,
+    attendanceRate: 100
+  };
+
+  appState.students.push(newStudent);
+  saveAppState(appState);
+  closeModal('modal-st-reg');
+  renderApp();
+  showToast(`¡Estudiante "${name}" matriculado(a) con éxito!`, 'success');
+}
+
+function openEditStudentModal(studentId) {
+  if (appState.currentRole !== 'teacher') return;
+  const student = appState.students.find(s => s.id === studentId);
+  if (!student) return;
+
+  const modalContainer = document.getElementById('modal-container');
+  modalContainer.innerHTML = `
+    <div class="modal-overlay active" id="modal-st-edit">
+      <div class="modal-box">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+          <h3 style="font-size:1.2rem; font-weight:800;">✏️ Editar Alumno: ${student.name}</h3>
+          <button class="btn btn-sm btn-outline" onclick="closeModal('modal-st-edit')">✕</button>
+        </div>
+
+        <form onsubmit="handleEditStudentSubmit(event, '${studentId}')">
+          <div class="form-group">
+            <label class="form-label">Nombre Completo:</label>
+            <input type="text" class="form-control" id="st-edit-name" value="${student.name}" required />
+          </div>
+
+          <div style="display:grid; grid-template-columns:1fr 1fr; gap:1rem;">
+            <div class="form-group">
+              <label class="form-label">Matrícula:</label>
+              <input type="text" class="form-control" id="st-edit-code" value="${student.code}" required />
+            </div>
+            <div class="form-group">
+              <label class="form-label">Grado:</label>
+              <input type="text" class="form-control" id="st-edit-grade" value="${student.grade}" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label class="form-label">Modalidad:</label>
+            <select class="form-control" id="st-edit-modality">
+              <option value="100% No Presencial (A Distancia)" ${student.modality.includes('No Presencial') ? 'selected' : ''}>100% No Presencial (A Distancia)</option>
+              <option value="Semipresencial Flexible" ${student.modality.includes('Semipresencial') ? 'selected' : ''}>Semipresencial Flexible</option>
+            </select>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:0.5rem; margin-top:1.25rem;">
+            <button type="button" class="btn btn-outline" onclick="closeModal('modal-st-edit')">Cancelar</button>
+            <button type="submit" class="btn btn-primary">Guardar Cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  `;
+}
+
+function handleEditStudentSubmit(e, studentId) {
+  e.preventDefault();
+  const student = appState.students.find(s => s.id === studentId);
+  if (student) {
+    const oldStudentName = student.name;
+    student.name = document.getElementById('st-edit-name').value.trim();
+    if (oldStudentName !== student.name) {
+      appState.forumPosts.forEach(p => {
+        if (p.authorRole === 'student' && p.author === oldStudentName) p.author = student.name;
+        (p.replies || []).forEach(r => {
+          if (r.authorRole === 'student' && r.author === oldStudentName) r.author = student.name;
+        });
+      });
+    }
+    student.code = document.getElementById('st-edit-code').value.trim();
+    student.grade = document.getElementById('st-edit-grade').value.trim();
+    student.modality = document.getElementById('st-edit-modality').value;
+
+    saveAppState(appState);
+    closeModal('modal-st-edit');
+    renderApp();
+    showToast(`Datos de ${student.name} actualizados.`, 'success');
+  }
+}
+
+function deleteStudent(studentId) {
+  if (appState.currentRole !== 'teacher') return;
+  const student = appState.students.find(s => s.id === studentId);
+  if (!student) return;
+
+  if (confirm(`¿Dar de baja al estudiante ${student.name}?`)) {
+    appState.students = appState.students.filter(s => s.id !== studentId);
+    if (appState.attendance) {
+      Object.keys(appState.attendance).forEach(d => { delete appState.attendance[d][studentId]; });
+    }
+    if (appState.currentStudentId === studentId) {
+      appState.currentStudentId = appState.students.length ? appState.students[0].id : '';
+    }
+    saveAppState(appState);
+    renderApp();
+    showToast('Estudiante dado de baja del registro.', 'info');
+  }
+}
+
+// ============================================================
+// FUNCIONES AUXILIARES DE UI Y NAVEGACIÓN
+// ============================================================
+function switchTab(tab) {
+  const role = sessionStorage.getItem('prepara360_authenticated_role');
+  // Restricción de navegación: el estudiante no puede abrir módulos exclusivos del docente.
+  const teacherOnlyTabs = ['attendance'];
+  if (role !== 'teacher' && teacherOnlyTabs.includes(tab)) {
+    showToast('Acceso restringido: esta sección es exclusiva del docente.', 'warning');
+    currentTab = 'dashboard';
+    renderApp();
+    return;
+  }
+  if (!['dashboard','subjects','tasks','resources','videos','forum','students','attendance'].includes(tab)) {
+    currentTab = 'dashboard';
+  } else {
+    currentTab = tab;
+  }
+  renderApp();
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+
+function toggleRole() {
+  // Los roles solo se cambian mediante el código de acceso.
+  logoutAccess();
+}
+
+function changeActiveStudent(studentId) {
+  if (sessionStorage.getItem('prepara360_authenticated_role') !== 'teacher') {
+    showToast('No tienes permiso para cambiar el perfil de estudiante.', 'warning');
+    renderApp();
+    return;
+  }
+  appState.currentStudentId = studentId;
+  saveAppState(appState);
+  renderApp();
+  const s = getCurrentStudent();
+  showToast(`Ahora navegando como: ${s.name}`, 'info');
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove('active');
+  }
+}
+
+function downloadResourceSimulated(title) {
+  showToast(`Descargando recurso didáctico: "${title}"...`, 'info');
+}
+
+function resetDemoData() {
+  if (sessionStorage.getItem('prepara360_authenticated_role') !== 'teacher') {
+    showToast('Acceso restringido: solo el docente puede restaurar los datos.', 'warning');
+    return;
+  }
+  if (confirm('¿Restaurar los datos de demostración a su estado inicial?')) {
+    localStorage.removeItem(STORAGE_KEY);
+    appState = loadAppState();
+    renderApp();
+    showToast('Datos de demostración restaurados.', 'info');
+  }
+}
+
+function filterForumByCategory(cat) {
+  showToast(`Filtrando foro por categoría: ${cat === 'duda' ? 'Dudas' : 'Discusión'}`, 'info');
+}
+
+// Sistema de Notificaciones Toast
+function showToast(message, type = 'info') {
+  const container = document.getElementById('toast-container');
+  if (!container) return;
+
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `<span>${type === 'success' ? '✅' : type === 'warning' ? '⚠️' : 'ℹ️'}</span> <span>${message}</span>`;
+  container.appendChild(toast);
+
+  setTimeout(() => {
+    toast.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+    toast.style.opacity = '0';
+    toast.style.transform = 'translateY(10px)';
+    setTimeout(() => toast.remove(), 400);
+  }, 3500);
+}
+
+// Confeti Festivo para Entregas de Tareas
+function fireConfetti() {
+  const canvas = document.getElementById('confetti-canvas');
+  if (!canvas) return;
+  const ctx = canvas.getContext('2d');
+  canvas.width = window.innerWidth;
+  canvas.height = window.innerHeight;
+
+  const particles = [];
+  const colors = ['#f43f5e', '#3b82f6', '#10b981', '#f59e0b', '#8b5cf6'];
+
+  for (let i = 0; i < 90; i++) {
+    particles.push({
+      x: canvas.width / 2,
+      y: canvas.height / 2,
+      vx: (Math.random() - 0.5) * 12,
+      vy: (Math.random() - 0.7) * 14,
+      size: Math.random() * 8 + 4,
+      color: colors[Math.floor(Math.random() * colors.length)],
+      alpha: 1,
+      rotation: Math.random() * 360
+    });
+  }
+
+  function animate() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    let active = false;
+
+    particles.forEach(p => {
+      p.x += p.vx;
+      p.y += p.vy;
+      p.vy += 0.25; // Gravedad
+      p.alpha -= 0.012;
+
+      if (p.alpha > 0) {
+        active = true;
+        ctx.save();
+        ctx.globalAlpha = p.alpha;
+        ctx.fillStyle = p.color;
+        ctx.translate(p.x, p.y);
+        ctx.rotate(p.rotation * Math.PI / 180);
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        ctx.restore();
+      }
+    });
+
+    if (active) {
+      requestAnimationFrame(animate);
+    } else {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+    }
+  }
+
+  requestAnimationFrame(animate);
+}
+
+// Inicialización de la aplicación
+document.addEventListener('DOMContentLoaded', () => {
+  renderApp();
+});
+  </script>
+  <script>
+/* Interactividad del título: foco de luz y paralaje con el puntero */
+(function () {
+  let raf = null, last = null;
+  function apply() {
+    raf = null;
+    const h = document.getElementById('p360-hero');
+    if (!h || !last) return;
+    const r = h.getBoundingClientRect();
+    const x = last.clientX - r.left, y = last.clientY - r.top;
+    h.style.setProperty('--mx', x + 'px');
+    h.style.setProperty('--my', y + 'px');
+    h.style.setProperty('--px', (x / r.width - 0.5).toFixed(3));
+    h.style.setProperty('--py', (y / r.height - 0.5).toFixed(3));
+  }
+  document.addEventListener('mousemove', function (e) {
+    last = e;
+    if (!raf) raf = requestAnimationFrame(apply);
+  }, { passive: true });
+})();
+
+  </script>
+</body>
+</html>
